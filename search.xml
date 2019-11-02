@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[9行代码入门MFBC]]></title>
+    <url>%2F2019%2F11%2F02%2F9%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%85%A5%E9%97%A8MFBC%2F</url>
+    <content type="text"><![CDATA[快速入门MFC（在VC++ 6.0 环境下完成的操作） 1.创建环境 新建一个工程 -&gt; 选择MFC AppWizard[exe] -&gt; 填好工程名称 2.简单画线 通过OnDraw函数画出简单的线 选择单文件 -&gt; 找到类视图里面的View类的OnDraw -&gt; 找到void CMyMFC2View::OnDraw(CDC* pDC) 函数 在函数体里写入pDC-&gt;LineTo(100,200);(运行会出现以(0,0)点为起点(100,200)点为终点的一条线) 调用pDC-&gt;MoveTo(x,y); 函数可以改变线的起点 注意：运行程序后将出现的页面最小化然后回复页面是才出现化的线 3.消息响应机制（实现简单弹出框） 通过OnLButtonDown函数实现鼠标点击事件 找到View类并点击右键添加一个 windows massage Handlers -&gt; 双击WM-LBVTTONDOWN 点击OK 找到该函数下的 CMyMFC2View::OnLButtonDown()函数 添加MessageBox(&quot;Hello World!&quot;);运行(点击鼠标左键会弹出框) 4.交互式画线 通过OnDraw，OnLButtonDown，OnLButtonUp函数实现拖动鼠标画线 第一步在view类的public里面定义四个变量； 在OnDraw中的void CMyMFC2View::OnDraw(CDC* pDC)中添加： 12pDC-&gt;MoveTo(x1,y1);pDC-&gt;LineTo(x2,y2); 找到WM-LBVTTONDOWN下的CMyMFC2View::OnLButtonDown()函数并写入以下语句： 123 //将鼠标按下去的坐标点赋给创建的变量x1,y1x1 = point.x; y1 = point.y; 再创建一个鼠标抬起是的事件OnLButtonUp()函数(创建步骤与鼠标抬起事件类似忘了可以看3.1) 将OnLButtonDown函数体里添加鼠标抬起事件： 12345 //将鼠标抬起的坐标点赋给创建的变量x2,y2x2 = point.x; y2 = point.y; //刷新窗口 invalidate(); 6.点击运行可以拖动鼠标画线]]></content>
+      <categories>
+        <category>自我介绍</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[一款精美翻页时钟屏保！]]></title>
     <url>%2F2019%2F10%2F18%2F%E5%B1%8F%E4%BF%9D%E6%97%B6%E9%92%9F%2F</url>
     <content type="text"><![CDATA[屏保时钟想跟大家分享一款windows精美翻页时钟，非常精美，简洁。效果上图所示。 打开浏览器搜索fliqlo. 找到官网并点击下载。 下载完成后打开下载目录打开应用程序 设置基本参数后应用即可。 这是应用后的效果，感谢您的阅读！]]></content>
