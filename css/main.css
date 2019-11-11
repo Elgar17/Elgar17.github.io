@@ -1106,7 +1106,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #91d6f7;
+  background: #3de041;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1920,6 +1920,13 @@ article:last-child .post-eof {
 .fb_like {
   align-self: center;
   height: 30px;
+}
+.post-body p a {
+  color: #000;
+  bordder-bottom: none;
+}
+.post-body p a:hover {
+  color: #226ddd;
 }
 .category-all-page .category-all-title {
   text-align: center;

@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Bootstrap笔记]]></title>
+    <url>%2F2019%2F11%2F11%2FBootstrap%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[响应式开发原理按大小划分4个类： 怎么控制？原理：父级元素作为布局容器，来配合子级元素来实现变化效果。 尺寸划分 设置： 12345678910111213141516171819202122232425262728293031323334353637&lt;div class=&quot;container&quot;&gt;&lt;/div&gt;&lt;style&gt; .container &#123; height: 150; background-color: #993333; margin: 0 auto; &#125; /*1. 超小屏幕下 */ @media screen and (max-width: 767px) &#123; .container&#123; width: 100%; &#125; &#125; /* 2. 小屏幕 容器 750 */ @media screen and (min-width: 768px) &#123; .container&#123; width: 750px; &#125; &#125; /* 3.中等 */ @media screen and (max-width: 992px) &#123; .container&#123; width: 970px; &#125; &#125; /* 4.大屏幕 */ @media screen and (max-width: 1200@media screen and (max-width: 767px) &#123; .container&#123; width: 100%; &#125; &#125;px) &#123; .container&#123; width: 1170px; &#125; &#125;&lt;/style&gt; Bootstrap开发框架简介 最流行的框架，移动设备优先的web项目 官网：Boostrap中文文档 Bootstrap 使用使用四部曲： 创建文件夹结构 创建html骨架结构 引入相关样式文件 书写内容 布局容器BT需要为页面内容和栅格系统包裹一个.container容器。 contianer类给div添加一个class就可以实现以下功能： contianer-fluid类 Bootstrap栅格系统栅格系统简介栅格系统：他将页面布局划分成等宽的列，然后通过数的定义来模块化页面布局,把页面平均分成12列 栅格系统的使用 栅格系统 列嵌套注意：我们列嵌套最好加一个行这样可以去掉父级的padding值高度自动和父级一样。 列偏移解决两个盒子左右对齐: .col-md-offset-* 添加margin值 ![列偏移(img\列偏移.PNG) 排列序 响应式工具]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[9行代码入门MFBC]]></title>
     <url>%2F2019%2F11%2F02%2F9%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%85%A5%E9%97%A8MFBC%2F</url>
     <content type="text"><![CDATA[快速入门MFC（在VC++ 6.0 环境下完成的操作） 1.创建环境 新建一个工程 -&gt; 选择MFC AppWizard[exe] -&gt; 填好工程名称 2.简单画线 通过OnDraw函数画出简单的线 选择单文件 -&gt; 找到类视图里面的View类的OnDraw -&gt; 找到void CMyMFC2View::OnDraw(CDC* pDC) 函数 在函数体里写入pDC-&gt;LineTo(100,200);(运行会出现以(0,0)点为起点(100,200)点为终点的一条线) 调用pDC-&gt;MoveTo(x,y); 函数可以改变线的起点 注意：运行程序后将出现的页面最小化然后回复页面是才出现化的线 3.消息响应机制（实现简单弹出框） 通过OnLButtonDown函数实现鼠标点击事件 找到View类并点击右键添加一个 windows massage Handlers -&gt; 双击WM-LBVTTONDOWN 点击OK 找到该函数下的 CMyMFC2View::OnLButtonDown()函数 添加MessageBox(&quot;Hello World!&quot;);运行(点击鼠标左键会弹出框) 4.交互式画线 通过OnDraw，OnLButtonDown，OnLButtonUp函数实现拖动鼠标画线 第一步在view类的public里面定义四个变量； 在OnDraw中的void CMyMFC2View::OnDraw(CDC* pDC)中添加： 12pDC-&gt;MoveTo(x1,y1);pDC-&gt;LineTo(x2,y2); 找到WM-LBVTTONDOWN下的CMyMFC2View::OnLButtonDown()函数并写入以下语句： 123 //将鼠标按下去的坐标点赋给创建的变量x1,y1x1 = point.x; y1 = point.y; 再创建一个鼠标抬起是的事件OnLButtonUp()函数(创建步骤与鼠标抬起事件类似忘了可以看3.1) 将OnLButtonDown函数体里添加鼠标抬起事件： 12345 //将鼠标抬起的坐标点赋给创建的变量x2,y2x2 = point.x; y2 = point.y; //刷新窗口 invalidate(); 6.点击运行可以拖动鼠标画线]]></content>
