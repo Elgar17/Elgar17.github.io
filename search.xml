@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[CSS float:right li 顺序颠倒]]></title>
     <url>%2F2019%2F12%2F07%2FCSS-float-right-li-%E9%A1%BA%E5%BA%8F%E9%A2%A0%E5%80%92%2F</url>
-    <content type="text"><![CDATA[当你写页面是会遇到右浮动盒子盒子时里面的内容也是反着，比如像这样： 12345678910111213141516171819202122&lt;!-- HTML ---&gt;&lt;ul class=&quot;right-navgation&quot;&gt; &lt;li&gt;我的订单&lt;/li&gt; &lt;li&gt;我的品优购&lt;/li&gt; &lt;li&gt;品优购会员&lt;/li&gt; &lt;li&gt;企业采购&lt;/li&gt; &lt;li&gt;关注品优购&lt;/li&gt; &lt;li&gt;客户服务&lt;/li&gt; &lt;li&gt;网站导航&lt;/li&gt;&lt;/ul&gt;&lt;!-- CSS --&gt;nav .right-navgation&#123; float: right; width: 630px; height: 31px; line-height: 31px; font-size: 12px;&#125;nav .right-navgation li&#123; margin: 0 15px 0 15px;&#125; 或许你想到的办法是把li的顺序倒过来，这种方法不是不行但看起来很别扭。我们只需要在将li左浮动就可以解决问题： 1234nav .right-navgation li&#123; folat: left; margin: 0 15px 0 15px;&#125; 以上是效果图，完美解决✌。]]></content>
+    <content type="text"><![CDATA[当你写页面是会遇到右浮动盒子盒子时里面的内容也是反着，比如像这样： 12345678910&lt;!-- HTML ---&gt;&lt;ul class="right-navgation"&gt; &lt;li&gt;我的订单&lt;/li&gt; &lt;li&gt;我的品优购&lt;/li&gt; &lt;li&gt;品优购会员&lt;/li&gt; &lt;li&gt;企业采购&lt;/li&gt; &lt;li&gt;关注品优购&lt;/li&gt; &lt;li&gt;客户服务&lt;/li&gt; &lt;li&gt;网站导航&lt;/li&gt;&lt;/ul&gt; 123456789101112/* CSS */nav .right-navgation&#123; float: right; width: 630px; height: 31px; line-height: 31px; font-size: 12px;&#125;nav .right-navgation li&#123; margin: 0 15px 0 15px;&#125; 或许你想到的办法是把li的顺序倒过来，这种方法不是不行但看起来很别扭。我们只需要在将li左浮动就可以解决问题： 1234nav .right-navgation li&#123; folat: left; margin: 0 15px 0 15px;&#125; 以上是效果图，完美解决✌。]]></content>
       <categories>
         <category>前端</category>
       </categories>
