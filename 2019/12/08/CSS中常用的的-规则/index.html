@@ -55,14 +55,19 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Elgar&#39;s blog">
-<meta property="og:url" content="https://Elgar17.github.io/tags/前端/index.html">
+  <meta name="description" content="这里我汇总了一些常见的CSSCSS中常用的的@规则，欢迎阅读🌈。">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS中常用的的@规则">
+<meta property="og:url" content="https://Elgar17.github.io/2019/12/08/CSS中常用的的-规则/index.html">
 <meta property="og:site_name" content="Elgar&#39;s blog">
+<meta property="og:description" content="这里我汇总了一些常见的CSSCSS中常用的的@规则，欢迎阅读🌈。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-08T11:56:44.079Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Elgar&#39;s blog">
-  <link rel="canonical" href="https://Elgar17.github.io/tags/前端/">
+<meta name="twitter:title" content="CSS中常用的的@规则">
+<meta name="twitter:description" content="这里我汇总了一些常见的CSSCSS中常用的的@规则，欢迎阅读🌈。">
+  <link rel="canonical" href="https://Elgar17.github.io/2019/12/08/CSS中常用的的-规则/">
 
 
 <script id="page-configurations">
@@ -70,13 +75,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>标签: 前端 | Elgar's blog</title>
+  <title>CSS中常用的的@规则 | Elgar's blog</title>
   
 
 
@@ -232,169 +237,177 @@
         <div class="content-wrap">
             
 
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-  
-
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block tag">
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">前端<small>标签</small>
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://Elgar17.github.io/2019/12/08/CSS中常用的的-规则/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Elgar">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/ELGAR.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Elgar's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">CSS中常用的的@规则
+
+          
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-08 19:46:17 / 修改时间：19:56:44" itemprop="dateCreated datePublished" datetime="2019-12-08T19:46:17+08:00">2019-12-08</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/12/08/CSS中常用的的-规则/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/12/08/CSS中常用的的-规则/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+        <p>这里我汇总了一些常见的CSSCSS中常用的的@规则，欢迎阅读🌈。</p><a id="more"></a>
+<ol>
+<li>@import</li>
+</ol>
+<ul>
+<li>在CSS文件中导入另一个CSS文件</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">import</span>"<span class="keyword">xx</span>.<span class="keyword">css</span>"</span><br></pre></td></tr></table></figure>
 
-  
-  
+<ol start="2">
+<li>charset</li>
+</ol>
+<ul>
+<li>用于提示css文件使用的字符串编码方式</li>
+<li>必须放在句首<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">charset</span> <span class="string">"utf-8"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="3">
+<li>@meida 媒体查询</li>
+</ol>
+<ul>
+<li>可以查询到用户手机的尺寸</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> print &#123;</span><br><span class="line">    <span class="selector-tag">body</span> &#123;</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">10pt</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-  
+<ol start="4">
+<li>@font-face</li>
+</ol>
+<ul>
+<li>自定义字体，自定义图标,iconfont就是利用这个实现的</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: Gentium;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(http://xxxx);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: Gentium, serif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>还有其他一些不常用的，有些是兼容性不好也不常用，所以没有给出来🙂。</p>
+
+    </div>
+
     
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
-    </div>
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-12-07T00:33:08+08:00"
-              content="2019-12-07">
-          12-07
-        </time>
-      </div>
-
-      <h2 class="post-title">
+    
+    
         
-          <a class="post-title-link" href="/2019/12/07/CSS-float-right-li-顺序颠倒/" itemprop="url">
-            <span itemprop="name">CSS float:right li 顺序颠倒</span>
-          </a>
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+            
+          </div>
         
-      </h2>
 
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-11-26T19:26:14+08:00"
-              content="2019-11-26">
-          11-26
-        </time>
-      </div>
-
-      <h2 class="post-title">
         
-          <a class="post-title-link" href="/2019/11/26/关于行内元素，块级元素和display/" itemprop="url">
-            <span itemprop="name">关于行内元素，块级元素和display</span>
-          </a>
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/12/07/CSS-float-right-li-顺序颠倒/" rel="next" title="CSS float:right li 顺序颠倒">
+                  <i class="fa fa-chevron-left"></i> CSS float:right li 顺序颠倒
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
         
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-11-11T22:54:56+08:00"
-              content="2019-11-11">
-          11-11
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/11/11/Bootstrap笔记/" itemprop="url">
-            <span itemprop="name">Bootstrap笔记</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-18T12:57:58+08:00"
-              content="2019-10-18">
-          10-18
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/18/JS笔记基础（1）/" itemprop="url">
-            <span itemprop="name">一篇搞定，JS运算符，typeof 操作符，typeof 操作符</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-    </div>
+      </footer>
+    
   </div>
   
   
   
+  </article>
 
-  
-
+  </div>
 
 
           </div>
           
+    
+    <div class="comments" id="comments"></div>
+  
 
         </div>
           
@@ -409,6 +422,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -438,7 +456,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -451,7 +469,7 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -464,7 +482,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
