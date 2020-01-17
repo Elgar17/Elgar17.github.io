@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[简单入门Node.js 与 npm]]></title>
+    <url>%2F2020%2F01%2F17%2F%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8Node-js-express%2F</url>
+    <content type="text"><![CDATA[这里我汇总了入门Node的笔记与express框架的使用🌃。 快速开始123456789101112131415161718192021//创建服务器 核心模块//1.加载var http = require('http')// 2. 创建服务器var server = http.createServer()// 3.接受请求 处理 反馈//当客户端过来请求，就会自动触发服务器request请求然后执行第二个参数server.on('request',function(req,res)&#123; if(req.url === '/index')&#123; res.end('Hello world') &#125;&#125;)// 4.绑定端口号 启动服务器server.listen(3000,function()&#123; console.log("服务器启动成功！")&#125;) 核心模块CommonJS 模块规范 模块作用域 使用require方法来加载模块 使用export接口对象来导出模块中的成员 require 导入 export 导出 exports和module.exports的区别（重要） night1234// 这是主文件目录var fooExports = require('./foo')console.log(fooExports) 123456// 这是另一个文件目录：foovar foo = 'hello'//这样主文件可以访问这个变量exports.foo = foo //foo是对象module.exports = foo //导出单个成员 require加载规则 优先从缓存中下载 不会重复加载 被编译到二进制文件 核心模块加载规则 被编译到二进制文件 第三方模块加载规则 都需要npm来加载 通过require来加载 package.json 建议每一个项目要有一个package.json文件包 相当与产品的说明书一 建议执行npm install的时候后面加上--save的选项，用来保存以来信息 如果依赖包被删除npm install命令来可以找回来 npm 是一个网站 命令行工具 常用命令 1234567891011121314151617181920212223242526272829// 1 初始化 快速生成$ npm init$ npm init -y// 2 安装误删的包$ npm instal// 3 下载包$ npm install name// 4 下载保存依赖项$ npm install --save name// 5 删除包$ npm uninstall name// 6 跟依赖包一起删除$ npm uninstalls -save name// 7 查询使用帮助$ npm --help// cnpm` 国内的备份// 先安装`cnpm`, 装到全局 // 原来的npm也可以用$ npm install --global cnpm$ cnpm install name]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
+        <tag>npm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[CSS中常用的的@规则]]></title>
     <url>%2F2019%2F12%2F08%2FCSS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E7%9A%84-%E8%A7%84%E5%88%99%2F</url>
     <content type="text"><![CDATA[这里我汇总了一些常见的CSSCSS中常用的的@规则，欢迎阅读🌈。 @import 在CSS文件中导入另一个CSS文件 1@import"xx.css" charset 用于提示css文件使用的字符串编码方式 必须放在句首1@charset "utf-8" @meida 媒体查询 可以查询到用户手机的尺寸 12345@media print &#123; body &#123; font-size: 10pt; &#125;&#125; @font-face 自定义字体，自定义图标,iconfont就是利用这个实现的 1234567@font-face &#123; font-family: Gentium; src: url(http://xxxx);&#125;p &#123; font-family: Gentium, serif;&#125; 还有其他一些不常用的，有些是兼容性不好也不常用，所以没有给出来🙂。]]></content>
