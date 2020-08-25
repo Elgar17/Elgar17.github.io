@@ -55,14 +55,18 @@
   };
 </script>
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="JS数据结构">
+  <meta name="description" content="1 Stack(栈)什么是栈？有什么用？在javascript中刚开始学习起来觉得栈没什么用！其实并不是。如果学过C/C++语言的话就发现站的用处，栈和队列在树结构和图结构上很有用。">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS数据结构——栈">
 <meta property="og:url" content="https://Elgar17.github.io/2020/08/24/JS数据结构/index.html">
 <meta property="og:site_name" content="Elgar&#39;s blog">
+<meta property="og:description" content="1 Stack(栈)什么是栈？有什么用？在javascript中刚开始学习起来觉得栈没什么用！其实并不是。如果学过C/C++语言的话就发现站的用处，栈和队列在树结构和图结构上很有用。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-08-24T14:56:27.549Z">
+<meta property="og:updated_time" content="2020-08-25T15:06:45.986Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS数据结构">
+<meta name="twitter:title" content="JS数据结构——栈">
+<meta name="twitter:description" content="1 Stack(栈)什么是栈？有什么用？在javascript中刚开始学习起来觉得栈没什么用！其实并不是。如果学过C/C++语言的话就发现站的用处，栈和队列在树结构和图结构上很有用。">
   <link rel="canonical" href="https://Elgar17.github.io/2020/08/24/JS数据结构/">
 
 
@@ -77,7 +81,7 @@
   };
 </script>
 
-  <title>JS数据结构 | Elgar's blog</title>
+  <title>JS数据结构——栈 | Elgar's blog</title>
   
 
 
@@ -263,7 +267,7 @@
       <meta itemprop="name" content="Elgar's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">JS数据结构
+        <h1 class="post-title" itemprop="name headline">JS数据结构——栈
 
           
         </h1>
@@ -281,6 +285,18 @@
 
               <time title="创建时间：2020-08-24 22:56:27" itemprop="dateCreated datePublished" datetime="2020-08-24T22:56:27+08:00">2020-08-24</time>
             </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-25 23:06:45" itemprop="dateModified" datetime="2020-08-25T23:06:45+08:00">2020-08-25</time>
+              </span>
+            
           
 
           
@@ -308,7 +324,53 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h3 id="1-Stack-栈"><a href="#1-Stack-栈" class="headerlink" title="1 Stack(栈)"></a>1 Stack(栈)</h3><p>什么是栈？有什么用？<br>在javascript中刚开始学习起来觉得栈没什么用！其实并不是。如果学过C/C++语言的话就发现站的用处，栈和队列在树结构和图结构上很有用。</p><a id="more"></a>
+<h3 id="2-基于原型链实现"><a href="#2-基于原型链实现" class="headerlink" title="2 基于原型链实现"></a>2 基于原型链实现</h3><p>实现（基于数组）：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stack</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//创建</span></span><br><span class="line">    <span class="keyword">this</span>.items = [];</span><br><span class="line">    <span class="comment">// 1.添加</span></span><br><span class="line">    Stack.prototype.push = <span class="function"><span class="keyword">function</span> (<span class="params">elment</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.items[<span class="keyword">this</span>.items.length] elment;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 2.删除</span></span><br><span class="line">    Stack.prototype.pop = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.items.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 3.栈顶元素</span></span><br><span class="line">    Stack.prototype.topElment = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.items[<span class="keyword">this</span>.items.length <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 4.判断是否空</span></span><br><span class="line">    Stack.prototype.isEmpty = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.items.length === <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 5.大小</span></span><br><span class="line">    Stack.prototype.length = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.items.length;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 6.将栈结构以字符串返回</span></span><br><span class="line">    Stack.prototype.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span>  <span class="keyword">this</span>.items.join(<span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3如何使用？"><a href="#3如何使用？" class="headerlink" title="3如何使用？"></a>3如何使用？</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> Stack();             <span class="comment">// 初始化</span></span><br><span class="line">s.push(<span class="number">26</span>)</span><br><span class="line">s.push(<span class="number">37</span>)</span><br><span class="line">s.push(<span class="number">28</span>)</span><br><span class="line">s.push(<span class="number">28</span>)</span><br><span class="line">s.push(<span class="number">25</span>)</span><br><span class="line"><span class="built_in">console</span>.log(s.items);           <span class="comment">// [26, 37, 28, 28, 25]</span></span><br><span class="line">s.pop();</span><br><span class="line"><span class="built_in">console</span>.log(s.items);           <span class="comment">// [26, 37, 28, 28]</span></span><br><span class="line">s.topElment();</span><br><span class="line"><span class="built_in">console</span>.log(s.topElment());     <span class="comment">// 28</span></span><br><span class="line"><span class="built_in">console</span>.log(s.isEmpty());       <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(s.length());        <span class="comment">// 4</span></span><br><span class="line"><span class="built_in">console</span>.log(s.toString());      <span class="comment">// 26372828</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-应用：二进制转十进制"><a href="#4-应用：二进制转十进制" class="headerlink" title="4 应用：二进制转十进制"></a>4 应用：二进制转十进制</h3><h4 id="1-什么是二进制？"><a href="#1-什么是二进制？" class="headerlink" title="1. 什么是二进制？"></a>1. 什么是二进制？</h4><p>这么说吧，假如让我们只能用1和0表示很大的数，怎么表示？ 1可以用1表示到表示2的时候只能用10表示了那么3呢？估计已经猜出来了是11。</p>
+<table>
+<thead>
+<tr>
+<th>十进制</th>
+<th>二进制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>10</td>
+</tr>
+<tr>
+<td>3</td>
+<td>11</td>
+</tr>
+<tr>
+<td>4</td>
+<td>100</td>
+</tr>
+<tr>
+<td>5</td>
+<td>101</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody></table>
+<h4 id="2-如何实现？"><a href="#2-如何实现？" class="headerlink" title="2. 如何实现？"></a>2. 如何实现？</h4><p>🏷这里我们利用栈实现十进制转换成二进制的程序。<br>№：将输入的十进制数除以二将余数保存到栈中，知道十进制数为0位置。然后拼接栈中的数据。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">decimalToBinary</span>(<span class="params">decNum</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> remStack = <span class="keyword">new</span> Stack();     <span class="comment">// 创建一个栈</span></span><br><span class="line">    <span class="keyword">var</span> num = decNum;</span><br><span class="line">    <span class="keyword">var</span> rem = <span class="number">0</span>;                    <span class="comment">// 存放余数</span></span><br><span class="line">    <span class="keyword">var</span> bStr = <span class="string">''</span>;                  <span class="comment">// 存放要返回的数</span></span><br><span class="line">    <span class="keyword">while</span>(num &gt; <span class="number">0</span>)&#123;                 </span><br><span class="line">        rem = <span class="built_in">Math</span>.floor(num%<span class="number">2</span>);    <span class="comment">// 将十进制数除2取余</span></span><br><span class="line">        remStack.push(rem);</span><br><span class="line">        num = <span class="built_in">Math</span>.floor(num/<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(!remStack.isEmpty())&#123;</span><br><span class="line">        bStr =  bStr + remStack.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> bStr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(decimalToBinary(<span class="number">10</span>))    <span class="comment">// 1010</span></span><br></pre></td></tr></table></figure>
+
+
     </div>
 
     
@@ -318,6 +380,15 @@
       
 
       <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+            
+          </div>
+        
 
         
 
@@ -384,6 +455,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Stack-栈"><span class="nav-number">1.</span> <span class="nav-text">1 Stack(栈)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-基于原型链实现"><span class="nav-number">2.</span> <span class="nav-text">2 基于原型链实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3如何使用？"><span class="nav-number">3.</span> <span class="nav-text">3如何使用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-应用：二进制转十进制"><span class="nav-number">4.</span> <span class="nav-text">4 应用：二进制转十进制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-什么是二进制？"><span class="nav-number">4.1.</span> <span class="nav-text">1. 什么是二进制？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-如何实现？"><span class="nav-number">4.2.</span> <span class="nav-text">2. 如何实现？</span></a></li></ol></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
