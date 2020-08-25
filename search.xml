@@ -3,15 +3,21 @@
   <entry>
     <title><![CDATA[JS数据结构——栈]]></title>
     <url>%2F2020%2F08%2F24%2FJS%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%2F</url>
-    <content type="text"><![CDATA[1 Stack(栈)什么是栈？有什么用？在javascript中刚开始学习起来觉得栈没什么用！其实并不是。如果学过C/C++语言的话就发现站的用处，栈和队列在树结构和图结构上很有用。 2 基于原型链实现实现（基于数组）： 12345678910111213141516171819202122232425262728function Stack() &#123; //创建 this.items = []; // 1.添加 Stack.prototype.push = function (elment) &#123; this.items[this.items.length] elment; &#125; // 2.删除 Stack.prototype.pop = function () &#123; this.items.pop(); &#125; // 3.栈顶元素 Stack.prototype.topElment = function () &#123; return this.items[this.items.length 1]; &#125; // 4.判断是否空 Stack.prototype.isEmpty = function () &#123; return this.items.length === 0; &#125; // 5.大小 Stack.prototype.length = function () &#123; return this.items.length; &#125; // 6.将栈结构以字符串返回 Stack.prototype.toString = function () &#123; return this.items.join(""); &#125;&#125; 3如何使用？1234567891011121314var s = new Stack(); // 初始化s.push(26)s.push(37)s.push(28)s.push(28)s.push(25)console.log(s.items); // [26, 37, 28, 28, 25]s.pop();console.log(s.items); // [26, 37, 28, 28]s.topElment();console.log(s.topElment()); // 28console.log(s.isEmpty()); // falseconsole.log(s.length()); // 4console.log(s.toString()); // 26372828 4 应用：二进制转十进制1. 什么是二进制？这么说吧，假如让我们只能用1和0表示很大的数，怎么表示？ 1可以用1表示到表示2的时候只能用10表示了那么3呢？估计已经猜出来了是11。 十进制 二进制 0 0 1 1 2 10 3 11 4 100 5 101 … … 2. 如何实现？🏷这里我们利用栈实现十进制转换成二进制的程序。№：将输入的十进制数除以二将余数保存到栈中，知道十进制数为0位置。然后拼接栈中的数据。 12345678910111213141516function decimalToBinary(decNum) &#123; var remStack = new Stack(); // 创建一个栈 var num = decNum; var rem = 0; // 存放余数 var bStr = ''; // 存放要返回的数 while(num &gt; 0)&#123; rem = Math.floor(num%2); // 将十进制数除2取余 remStack.push(rem); num = Math.floor(num/2); &#125; while(!remStack.isEmpty())&#123; bStr = bStr + remStack.pop(); &#125; return bStr;&#125;console.log(decimalToBinary(10)) // 1010]]></content>
+    <content type="text"><![CDATA[这篇关于JS实现的数据结构——栈结构🌂。 1 Stack(栈)什么是栈？有什么用？在javascript中刚开始学习起来觉得栈没什么用！其实并不是。如果学过C/C++语言的话就发现站的用处，栈和队列在树结构和图结构上很有用。 2 基于原型链实现实现（基于数组）： 12345678910111213141516171819202122232425262728function Stack() &#123; //创建 this.items = []; // 1.添加 Stack.prototype.push = function (elment) &#123; this.items[this.items.length] elment; &#125; // 2.删除 Stack.prototype.pop = function () &#123; this.items.pop(); &#125; // 3.栈顶元素 Stack.prototype.topElment = function () &#123; return this.items[this.items.length 1]; &#125; // 4.判断是否空 Stack.prototype.isEmpty = function () &#123; return this.items.length === 0; &#125; // 5.大小 Stack.prototype.length = function () &#123; return this.items.length; &#125; // 6.将栈结构以字符串返回 Stack.prototype.toString = function () &#123; return this.items.join(""); &#125;&#125; 3如何使用？1234567891011121314var s = new Stack(); // 初始化s.push(26)s.push(37)s.push(28)s.push(28)s.push(25)console.log(s.items); // [26, 37, 28, 28, 25]s.pop();console.log(s.items); // [26, 37, 28, 28]s.topElment();console.log(s.topElment()); // 28console.log(s.isEmpty()); // falseconsole.log(s.length()); // 4console.log(s.toString()); // 26372828 4 应用：二进制转十进制1. 什么是二进制？这么说吧，假如让我们只能用1和0表示很大的数，怎么表示？ 1可以用1表示到表示2的时候只能用10表示了那么3呢？估计已经猜出来了是11。 十进制 二进制 0 0 1 1 2 10 3 11 4 100 5 101 … … 2. 如何实现？🏷这里我们利用栈实现十进制转换成二进制的程序。№：将输入的十进制数除以二将余数保存到栈中，知道十进制数为0位置。然后拼接栈中的数据。 12345678910111213141516function decimalToBinary(decNum) &#123; var remStack = new Stack(); // 创建一个栈 var num = decNum; var rem = 0; // 存放余数 var bStr = ''; // 存放要返回的数 while(num &gt; 0)&#123; rem = Math.floor(num%2); // 将十进制数除2取余 remStack.push(rem); num = Math.floor(num/2); &#125; while(!remStack.isEmpty())&#123; bStr = bStr + remStack.pop(); &#125; return bStr;&#125;console.log(decimalToBinary(10)) // 1010]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
       <tags>
-        <tag>CSS</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[github与git]]></title>
     <url>%2F2020%2F01%2F17%2Fgithub%E4%B8%8Egit%2F</url>
     <content type="text"><![CDATA[这篇关于github与git的介绍🐒。 github: 存放代码的远程仓库。 git： 管理github的工具。 github基本概念仓库 （Repository） 存放你项目的地方，每个项目都存放一个仓库中 收藏(Star) 收藏项目的人数 复制和克隆(Fork) 复制别人的仓库到我的账号下创建一个新仓库 独立存在的 发起请求(Pull Request) 基于fork的，你在别人的项目上做了改进、行把他合并这时候可以发请求 发起人觉得不错、这是可以合并 关注(Watch) 关注项目，当项目更新时可以接收到通知 事物卡片(Issue) 发现代码BUG,但是目前没有成型代码，需要讨论时用 Github主页 用户动态和用户动态 仓库主页 项目代码 版本 收藏/关注/fork情况 个人主页 个人信息 项目等 2 注册 注册 验证邮箱(收不到邮箱上设置白名单) git 分布式版本控制工具 工作流程 从远程仓库中克隆Git资源作为本地仓库 从本地仓库中checkout代码然后惊醒代码修改 在提交代码之前将代码提交到暂存区 提交修改 -&gt; 提交到本地仓库 ，本地仓库中修改的个历史版本 修改完成之后，需要和团队共享代码时，可以push到远程仓库 基本信息设置12345// 1. 设置用户名git config --globa user.name &apos;elgar&apos;//2. 设置邮箱git config --global user.email &apos;elgar@163.com&apos; 基本命令1234567891011121314151617181920212223// 查看配置$ git config --list// 初始化文件，在该文件目录下生成git的隐藏文件$ git init// 创建文件$ touch xxx.html// 查看代码状态$ git status// 将文件提交到暂存区$ git add xxx.html// 将代码提交到仓库$ git commit -m &quot;提交描述&quot;// 将提文件交到远程仓库$ git push// 克隆$ git clone 地址 将项目提交到github123456789101112131415161718# 1 创建仓库# 2 到项目目录初始化项目$ git init # 3 将文件添加到暂存区$ git add .# 4 将文件添加到工作区$ git commit -m &quot;初始化&quot;# 5 $ git remote add origin &quot;仓库ssh&quot;# 6 查看关联的远程仓库的详细信息$ git remote -v# 7 上传分支$ git push master]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
       <tags>
         <tag>github</tag>
         <tag>git</tag>
@@ -22,18 +28,18 @@
     <url>%2F2020%2F01%2F17%2FNode-js%E6%A1%86%E6%9E%B6express%2F</url>
     <content type="text"><![CDATA[这篇关于Node.js框架express的介绍🏃。 框架的优点 原生http在某些方面不足以要求 开效率高 统一代码 快速开始123456789101112131415161718// 1. 加载模块：var express = require('express')// 2. 创建app:var app = express()// 3. 开放文件(静态服务)// 开放以/public/开头的文件,去./public/目录下去找，/public/xxx开头app.use('/public/',express.static(./public/))// 4. 配置路由app.get('/',function(req,res)&#123; res.send('hello world')&#125;)// 5. 创建路由启动服务器app.listen('端口号',处理函数) Express中配置art-template1234567891011//1. 安装：npm install --save art-templatenpm install --save express-ar-templat //2.配置：//第一个参数： 渲染.art结尾的文件使用art-templteapp.engine('art',require('express-art-temp'))//3.渲染：//创建以views的文件夹，默认渲染的是views的文件夹 res.render('路径',&#123;渲染数据&#125;) 3 使用第三方包(POST) express中没有处理post的方法，所以借助三方包 1. installation(安装)1npm install --save body-parser 2.configure(配置)1234567891011121314151617181920212223242526272829var express = require('express')var bodyParser = require('body-parser')var app = express()//配置后body属性多一个body属性// parse application/x-www-form-urlencodedapp.use(bodyParser.urlencoded(&#123; extended: false &#125;))// parse application/jsonapp.use(bodyParser.json())app.use(function (req, res) &#123; res.setHeader('Content-Type', 'text/plain') res.write('you posted:\n') //通过req.n=body来获取表单post请求 res.end(JSON.stringify(req.body, null, 2))&#125;)//使用app.post('/pinglun', function (req, res) &#123; //req.body只能拿到post请求的数据 var comment = req.body comment.data = '2019.12.27' // 追加到数组后面 commemts.unshift(comment) console.log(req.body) res.redirect('/')&#125;) 3. 使用123456789app.post('/pinglun', function (req, res) &#123; //req.body只能拿到post请求的数据 var comment = req.body comment.data = '2019.12.27' // 追加到数组后面 commemts.unshift(comment) console.log(req.body) res.redirect('/')&#125;) 4. 关于package.json和package-lock.json package-lock.json 保存node_moudules所有包的依赖信息，比如下载网址等 package-lock.json锁定依赖包版本号 5. path模块在每个模块中，除了require、export等相关模块API之外，还有连个特殊成员： 在文件路径中相对路径型对于运行的，在问及那操作中，使用相对路径是不可靠的，因为在node 中文件操作配设计为型对于node 命令所处的路径。 为了解决这个问题，秩序把相对路径变为绝对路径就可以了 123456789101112131415// 获取当前文件模块所属目录console.log(__dirname) // 列：D:\NodeJS\ex// 获取当前文件路径console.log(__filename) // 列：D:\NodeJS\ex\hello.js// 这样写文件位置一换就出现问题fs.readFile('C:/User/index.js',function(err,data)&#123; console.log(data)&#125;)// 所以使用以下方法，动态获取绝对路径fs.readFile(path.join(__dirname, './a.txt'),function(err,data)&#123; console.log(data)&#125;) 注意： 模块路径不受影响]]></content>
       <categories>
-        <category>Node</category>
+        <category>后端</category>
       </categories>
       <tags>
         <tag>Node</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[简单入门Node.js 与 npm]]></title>
-    <url>%2F2020%2F01%2F10%2F%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8Node-js-express%2F</url>
+    <title><![CDATA[简单入门NodeJS]]></title>
+    <url>%2F2020%2F01%2F10%2F%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8NodeJS%2F</url>
     <content type="text"><![CDATA[这里我汇总了入门Node的笔记与npm的使用🌃。 快速开始123456789101112131415161718192021//创建服务器 核心模块//1.加载var http = require('http')// 2. 创建服务器var server = http.createServer()// 3.接受请求 处理 反馈//当客户端过来请求，就会自动触发服务器request请求然后执行第二个参数server.on('request',function(req,res)&#123; if(req.url === '/index')&#123; res.end('Hello world') &#125;&#125;)// 4.绑定端口号 启动服务器server.listen(3000,function()&#123; console.log("服务器启动成功！")&#125;) 核心模块CommonJS 模块规范 模块作用域 使用require方法来加载模块 使用export接口对象来导出模块中的成员 require 导入 export 导出 exports和module.exports的区别（重要） night1234// 这是主文件目录var fooExports = require('./foo')console.log(fooExports) 123456// 这是另一个文件目录：foovar foo = 'hello'//这样主文件可以访问这个变量exports.foo = foo //foo是对象module.exports = foo //导出单个成员 require加载规则 优先从缓存中下载 不会重复加载 被编译到二进制文件 核心模块加载规则 被编译到二进制文件 第三方模块加载规则 都需要npm来加载 通过require来加载 package.json 建议每一个项目要有一个package.json文件包 相当与产品的说明书一 建议执行npm install的时候后面加上--save的选项，用来保存以来信息 如果依赖包被删除npm install命令来可以找回来 npm 是一个网站 命令行工具 常用命令 1234567891011121314151617181920212223242526272829// 1 初始化 快速生成$ npm init$ npm init -y// 2 安装误删的包$ npm instal// 3 下载包$ npm install name// 4 下载保存依赖项$ npm install --save name// 5 删除包$ npm uninstall name// 6 跟依赖包一起删除$ npm uninstalls -save name// 7 查询使用帮助$ npm --help// cnpm` 国内的备份// 先安装`cnpm`, 装到全局 // 原来的npm也可以用$ npm install --global cnpm$ cnpm install name]]></content>
       <categories>
-        <category>Node</category>
+        <category>后端</category>
       </categories>
       <tags>
         <tag>Node</tag>
@@ -45,7 +51,7 @@
     <url>%2F2019%2F12%2F08%2FCSS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E7%9A%84-%E8%A7%84%E5%88%99%2F</url>
     <content type="text"><![CDATA[这里我汇总了一些常见的CSSCSS中常用的的@规则，欢迎阅读🌈。 @import 在CSS文件中导入另一个CSS文件 1@import"xx.css" charset 用于提示css文件使用的字符串编码方式 必须放在句首1@charset "utf-8" @meida 媒体查询 可以查询到用户手机的尺寸 12345@media print &#123; body &#123; font-size: 10pt; &#125;&#125; @font-face 自定义字体，自定义图标,iconfont就是利用这个实现的 1234567@font-face &#123; font-family: Gentium; src: url(http://xxxx);&#125;p &#123; font-family: Gentium, serif;&#125; 还有其他一些不常用的，有些是兼容性不好也不常用，所以没有给出来🙂。]]></content>
       <categories>
-        <category>CSS</category>
+        <category>前端</category>
       </categories>
       <tags>
         <tag>CSS</tag>
@@ -56,7 +62,7 @@
     <url>%2F2019%2F12%2F07%2FCSS-float-right-li-%E9%A1%BA%E5%BA%8F%E9%A2%A0%E5%80%92%2F</url>
     <content type="text"><![CDATA[这篇关于CSS中的一些技巧🌍。 当你写页面是会遇到右浮动盒子盒子时里面的内容也是反着，比如像这样： 12345678910&lt;!-- HTML ---&gt;&lt;ul class="right-navgation"&gt; &lt;li&gt;我的订单&lt;/li&gt; &lt;li&gt;我的品优购&lt;/li&gt; &lt;li&gt;品优购会员&lt;/li&gt; &lt;li&gt;企业采购&lt;/li&gt; &lt;li&gt;关注品优购&lt;/li&gt; &lt;li&gt;客户服务&lt;/li&gt; &lt;li&gt;网站导航&lt;/li&gt;&lt;/ul&gt; 123456789101112/* CSS */nav .right-navgation&#123; float: right; width: 630px; height: 31px; line-height: 31px; font-size: 12px;&#125;nav .right-navgation li&#123; margin: 0 15px 0 15px;&#125; 或许你想到的办法是把li的顺序倒过来，这种方法不是不行但看起来很别扭。我们只需要在将li左浮动就可以解决问题： 1234nav .right-navgation li&#123; folat: left; margin: 0 15px 0 15px;&#125; 以上是效果图，完美解决✌。]]></content>
       <categories>
-        <category>CSS</category>
+        <category>前端</category>
       </categories>
       <tags>
         <tag>CSS</tag>
@@ -68,7 +74,7 @@
     <url>%2F2019%2F11%2F26%2F%E5%85%B3%E4%BA%8E%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0%EF%BC%8C%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0%E5%92%8Cdisplay%2F</url>
     <content type="text"><![CDATA[这篇关于HTML中的行级元素和块级元素👣。 行级元素：a span img input selct... 块级元素：div ul ol li dl dt h1.. 块级元素和行级元素的区别]]></content>
       <categories>
-        <category>HTML</category>
+        <category>前端</category>
       </categories>
       <tags>
         <tag>HTML</tag>
@@ -79,7 +85,7 @@
     <url>%2F2019%2F11%2F11%2FBootstrap%E7%AC%94%E8%AE%B0%2F</url>
     <content type="text"><![CDATA[这篇关于CSS响应式开发框架Bootstrap🍍。 Bootstrap 让前端开发更快速、简单。所有开发者都能快速上手、所有设备都可以适配、所有项目都适用。 预处理脚本 一个框架、多种设备 特性齐全 响应式开发原理按大小划分4个类： 怎么控制？原理：父级元素作为布局容器，来配合子级元素来实现变化效果。 尺寸划分 设置： 12345678910111213141516171819202122232425262728293031323334353637&lt;div class=&quot;container&quot;&gt;&lt;/div&gt;&lt;style&gt; .container &#123; height: 150; background-color: #993333; margin: 0 auto; &#125; /*1. 超小屏幕下 */ @media screen and (max-width: 767px) &#123; .container&#123; width: 100%; &#125; &#125; /* 2. 小屏幕 容器 750 */ @media screen and (min-width: 768px) &#123; .container&#123; width: 750px; &#125; &#125; /* 3.中等 */ @media screen and (max-width: 992px) &#123; .container&#123; width: 970px; &#125; &#125; /* 4.大屏幕 */ @media screen and (max-width: 1200@media screen and (max-width: 767px) &#123; .container&#123; width: 100%; &#125; &#125;px) &#123; .container&#123; width: 1170px; &#125; &#125;&lt;/style&gt; Bootstrap开发框架简介 最流行的框架，移动设备优先的web项目 官网：Boostrap中文文档 Bootstrap 使用使用四部曲： 创建文件夹结构 创建html骨架结构 引入相关样式文件 书写内容 布局容器BT需要为页面内容和栅格系统包裹一个.container容器。 contianer类给div添加一个class就可以实现以下功能： contianer-fluid类 Bootstrap栅格系统栅格系统简介栅格系统：他将页面布局划分成等宽的列，然后通过数的定义来模块化页面布局,把页面平均分成12列 栅格系统的使用 栅格系统 列嵌套注意：我们列嵌套最好加一个行这样可以去掉父级的padding值高度自动和父级一样。 列偏移解决两个盒子左右对齐: .col-md-offset-* 添加margin值 排列序 响应式工具]]></content>
       <categories>
-        <category>CSS</category>
+        <category>前端</category>
       </categories>
       <tags>
         <tag>CSS</tag>
@@ -90,7 +96,7 @@
     <url>%2F2019%2F11%2F02%2F9%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%85%A5%E9%97%A8MFBC%2F</url>
     <content type="text"><![CDATA[快速入门MFC（在VC++ 6.0 环境下完成的操作） 1.创建环境 新建一个工程 -&gt; 选择MFC AppWizard[exe] -&gt; 填好工程名称 2.简单画线 通过OnDraw函数画出简单的线 选择单文件 -&gt; 找到类视图里面的View类的OnDraw -&gt; 找到void CMyMFC2View::OnDraw(CDC* pDC) 函数 在函数体里写入pDC-&gt;LineTo(100,200);(运行会出现以(0,0)点为起点(100,200)点为终点的一条线) 调用pDC-&gt;MoveTo(x,y); 函数可以改变线的起点 注意：运行程序后将出现的页面最小化然后回复页面是才出现化的线 3.消息响应机制（实现简单弹出框） 通过OnLButtonDown函数实现鼠标点击事件 找到View类并点击右键添加一个 windows massage Handlers -&gt; 双击WM-LBVTTONDOWN 点击OK 找到该函数下的 CMyMFC2View::OnLButtonDown()函数 添加MessageBox(&quot;Hello World!&quot;);运行(点击鼠标左键会弹出框) 4.交互式画线 通过OnDraw，OnLButtonDown，OnLButtonUp函数实现拖动鼠标画线 第一步在view类的public里面定义四个变量； 在OnDraw中的void CMyMFC2View::OnDraw(CDC* pDC)中添加： 12pDC-&gt;MoveTo(x1,y1);pDC-&gt;LineTo(x2,y2); 找到WM-LBVTTONDOWN下的CMyMFC2View::OnLButtonDown()函数并写入以下语句： 123 //将鼠标按下去的坐标点赋给创建的变量x1,y1x1 = point.x; y1 = point.y; 再创建一个鼠标抬起是的事件OnLButtonUp()函数(创建步骤与鼠标抬起事件类似忘了可以看3.1) 将OnLButtonDown函数体里添加鼠标抬起事件： 12345 //将鼠标抬起的坐标点赋给创建的变量x2,y2x2 = point.x; y2 = point.y; //刷新窗口 invalidate(); 6.点击运行可以拖动鼠标画线]]></content>
       <categories>
-        <category>C++</category>
+        <category>后端</category>
       </categories>
       <tags>
         <tag>C++</tag>
@@ -101,7 +107,7 @@
     <url>%2F2019%2F10%2F18%2FJS%E7%AC%94%E8%AE%B0%E5%9F%BA%E7%A1%80%EF%BC%881%EF%BC%89%2F</url>
     <content type="text"><![CDATA[这篇关于数据类型转换、运算符、typeof 操作符🍕。 1. 运算符1.1 &amp;&amp;(与)有二个表达式：先看第一个表达式转换成布尔值，如果是真那么会看第二个表达式转换长成布尔值的结果。有多个也一样。(if) 短路语句: 123var date = &quot;hello world&quot;;//先判断data数据是否存在date &amp;&amp; document(date); 1.2 || (或) 寻找真 1.3 !(逻辑非) 取反 2. typeof 操作符使用 typeof 操作符来检测变量的数据类型。 12345678910typeof &quot;John&quot; // 返回 stringtypeof 3.14 // 返回 numbertypeof NaN // 返回 numbertypeof false // 返回 booleantypeof [1,2,3,4] // 返回 objecttypeof &#123;name:&apos;John&apos;, age:34&#125; // 返回 objecttypeof new Date() // 返回 objecttypeof function () &#123;&#125; // 返回 functiontypeof myCar // 返回 undefined (如果 myCar 没有声明)typeof null // 返回 object 2.1 null 在 JavaScript 中 null 表示 “什么都没有”。 null是一个只有一个值的特殊类型。表示一个空对象引用。 1var person = null; // 值为 null(空), 但类型为对象 2.2 undefinedundefined 是一个没有设置值的变量。 typeof 一个没有值的变量会返回 undefined。 123var person = undefined; // 值为 undefined, 类型为 undefinedvar person; // 值为 undefined(空), 类型是undefined 2.3 undefined 和 null 的区别null 和 undefined 的值相等，但类型不等 1234typeof undefined // undefinedtypeof null // objectnull === undefined // falsenull == undefined // true 3. 数据类型转换3.1 JavaScript 数据类型 5 种不同的数据类型： string number boolean object function 3 种对象类型： Object Date Array 2 个不包含任何值的数据类型： null undefined 注意: - NaN 的数据类型是 number - 数组(Array)的数据类型是 object - 日期(Date)的数据类型为 object 3.2 constructor 属性constructor 属性返回所有 JavaScript 变量的构造函数。 1234567&quot;John&quot;.constructor // 返回函数 String() &#123; [native code] &#125;(3.14).constructor // 返回函数 Number() &#123; [native code] &#125;false.constructor // 返回函数 Boolean() &#123; [native code] &#125;[1,2,3,4].constructor // 返回函数 Array() &#123; [native code] &#125;&#123;name:&apos;John&apos;, age:34&#125;.constructor // 返回函数 Object() &#123; [native code] &#125;new Date().constructor // 返回函数 Date() &#123; [native code] &#125;function () &#123;&#125;.constructor // 返回函数 Function()&#123; [native code] &#125; 3.3 数字转字符串方法: String()或toString() 12String(123) //返回字符串123flase.Sting() //返回&quot;flase&quot; 3.4 布尔值、字符串转数字123456Number(&quot;3.14&quot;) //返回 3.14Number(&quot; &quot;) // 返回 0Number(&quot;&quot;) // 返回 0Number(&quot;99 88&quot;) // 返回 NaNNumber(false) // 返回 0Number(true) // 返回 1 3.5 隐式类型转换（自动类型转换）12345 + null // 返回 5 null 转换为 0&quot;5&quot; + null // 返回&quot;5null&quot; null 转换为 &quot;null&quot;&quot;5&quot; + 1 // 返回 &quot;51&quot; 1 转换为 &quot;1&quot; &quot;5&quot; - 1 // 返回 4 &quot;5&quot; 转换为 5 1234ocument.getElementById(&quot;demo&quot;).innerHTML = myVar;myVar = &#123;name:&quot;Fjohn&quot;&#125; // toString 转换为 &quot;[object Object]&quot;myVar = [1,2,3,4] // toString 转换为 &quot;1,2,3,4&quot; 原始值 数字 字符串 布尔值 flase 0 “flase” flase “0” 0 “0” true “000” 0 “000” true “” 0 “” false]]></content>
       <categories>
-        <category>JavaScript</category>
+        <category>前端</category>
       </categories>
       <tags>
         <tag>JavaScript</tag>
@@ -112,7 +118,7 @@
     <url>%2F2019%2F10%2F06%2F%E4%BD%A0%E5%A5%BD%20%E4%B8%96%E7%95%8C%EF%BC%81%2F</url>
     <content type="text"><![CDATA[这篇关于我👨‍💻。 你好 世界！&ensp;&ensp;之前一直想拥有自己的博客，今天终于完成了。写博客是为了什么？记录自己的成长过程吧，至于能不能帮到别人自己也不知道。 关于我&ensp;&ensp;你好，我是一名18届吉林大学通信工程学院的的在校生Elgar，之前编程是我业余爱好，现在却发现已经爱上了这个行业，因为之前不敢接触是因为看到一堆英文我就很慌，但是后来发现只要会一点基础都可以学。我平时爱好编程，🏇，🏋️‍♀️，👨‍💻。&ensp;&ensp;对于编程，向web前端工程师靠拢。 这是什么地方？ 作为网络个人空间 学习交流的地方 个人(我)展示某方面的空间 还有学习笔记供大家参考 我会写什么？我会分享生活感悟，学习过程中遇到的一些问题。希望多多支持。]]></content>
       <categories>
-        <category>自我介绍</category>
+        <category>关于我</category>
       </categories>
       <tags>
         <tag>自我介绍</tag>
