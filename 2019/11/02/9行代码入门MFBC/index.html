@@ -55,23 +55,20 @@
   };
 </script>
 
-  <meta name="description" content="快速入门MFC（在VC++ 6.0 环境下完成的操作）">
-<meta name="keywords" content="C++">
+  <meta name="description" content="这篇介绍JavaScript中的call&amp;amp;apply&amp;amp;bind的用法与区别🎂。">
+<meta name="keywords" content="JavaScript,面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="9行代码入门MFBC">
+<meta property="og:title" content="还不会call&amp;apply&amp;bind的区别？">
 <meta property="og:url" content="https://Elgar17.github.io/2019/11/02/9行代码入门MFBC/index.html">
 <meta property="og:site_name" content="Elgar&#39;s blog">
-<meta property="og:description" content="快速入门MFC（在VC++ 6.0 环境下完成的操作）">
+<meta property="og:description" content="这篇介绍JavaScript中的call&amp;amp;apply&amp;amp;bind的用法与区别🎂。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://pzs61rn70.bkt.clouddn.com/newpro.jpg">
-<meta property="og:image" content="http://pzs61rn70.bkt.clouddn.com/%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%94%BB%E7%BA%BF.PNG">
-<meta property="og:image" content="http://pzs61rn70.bkt.clouddn.com/%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%94%BB%E7%BA%BF2.PNG">
-<meta property="og:image" content="http://pzs61rn70.bkt.clouddn.com/%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.PNG">
-<meta property="og:updated_time" content="2020-08-25T15:12:19.380Z">
+<meta property="og:image" content="https://elgar17.github.io/2019/11/02/9行代码入门MFBC/shou.jpg">
+<meta property="og:updated_time" content="2020-09-10T12:28:28.384Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="9行代码入门MFBC">
-<meta name="twitter:description" content="快速入门MFC（在VC++ 6.0 环境下完成的操作）">
-<meta name="twitter:image" content="http://pzs61rn70.bkt.clouddn.com/newpro.jpg">
+<meta name="twitter:title" content="还不会call&amp;apply&amp;bind的区别？">
+<meta name="twitter:description" content="这篇介绍JavaScript中的call&amp;amp;apply&amp;amp;bind的用法与区别🎂。">
+<meta name="twitter:image" content="https://elgar17.github.io/2019/11/02/9行代码入门MFBC/shou.jpg">
   <link rel="canonical" href="https://Elgar17.github.io/2019/11/02/9行代码入门MFBC/">
 
 
@@ -86,7 +83,7 @@
   };
 </script>
 
-  <title>9行代码入门MFBC | Elgar's blog</title>
+  <title>还不会call&apply&bind的区别？ | Elgar's blog</title>
   
 
 
@@ -272,7 +269,7 @@
       <meta itemprop="name" content="Elgar's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">9行代码入门MFBC
+        <h1 class="post-title" itemprop="name headline">还不会call&apply&bind的区别？
 
           
         </h1>
@@ -299,13 +296,13 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-25 23:12:19" itemprop="dateModified" datetime="2020-08-25T23:12:19+08:00">2020-08-25</time>
+                <time title="修改时间：2020-09-10 20:28:28" itemprop="dateModified" datetime="2020-09-10T20:28:28+08:00">2020-09-10</time>
               </span>
             
           
 
           
-            <span id="/2019/11/02/9行代码入门MFBC/" class="post-meta-item leancloud_visitors" data-flag-title="9行代码入门MFBC" title="阅读次数">
+            <span id="/2019/11/02/9行代码入门MFBC/" class="post-meta-item leancloud_visitors" data-flag-title="还不会call&apply&bind的区别？" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -337,49 +334,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="快速入门MFC"><a href="#快速入门MFC" class="headerlink" title="快速入门MFC"></a>快速入门MFC</h1><p>（在VC++ 6.0 环境下完成的操作）</p><a id="more"></a>
-<h2 id="1-创建环境"><a href="#1-创建环境" class="headerlink" title="1.创建环境"></a>1.创建环境</h2><p> 新建一个工程 -&gt; 选择MFC AppWizard[exe] -&gt; 填好工程名称<br><img src="http://pzs61rn70.bkt.clouddn.com/newpro.jpg" alt="新建工程"></p>
-<h2 id="2-简单画线"><a href="#2-简单画线" class="headerlink" title="2.简单画线"></a>2.简单画线</h2><ul>
-<li>通过OnDraw函数画出简单的线</li>
-</ul>
-<ol>
-<li>选择单文件 -&gt; 找到类视图里面的View类的OnDraw -&gt; 找到void CMyMFC2View::OnDraw(CDC* pDC) 函数 </li>
-</ol>
+        <p>这篇介绍JavaScript中的call&amp;apply&amp;bind的用法与区别🎂。</p><a id="more"></a>
+<p><img src="shou.jpg" alt="shou"></p>
+<h3 id="call"><a href="#call" class="headerlink" title="call"></a>call</h3><p><code>call</code>方法有两个作用,一是调用函数,二是改变this的指向。关于参数:</p>
 <ul>
-<li>在函数体里写入<code>pDC-&gt;LineTo(100,200);</code>(运行会出现以(0,0)点为起点(100,200)点为终点的一条线)</li>
+<li>参数1: 传入的<code>this</code></li>
+<li>参数2,3,..: 给函数传进参数</li>
 </ul>
-<ol start="2">
-<li>调用<code>pDC-&gt;MoveTo(x,y);</code> 函数可以改变线的起点</li>
-</ol>
-<p><strong>注意：运行程序后将出现的页面最小化然后回复页面是才出现化的线</strong></p>
-<h2 id="3-消息响应机制（实现简单弹出框）"><a href="#3-消息响应机制（实现简单弹出框）" class="headerlink" title="3.消息响应机制（实现简单弹出框）"></a>3.消息响应机制（实现简单弹出框）</h2><ul>
-<li>通过OnLButtonDown函数实现鼠标点击事件</li>
-</ul>
-<ol>
-<li>找到View类并点击右键添加一个 <code>windows massage Handlers</code> -&gt; 双击<code>WM-LBVTTONDOWN</code> 点击OK<br><img src="http://pzs61rn70.bkt.clouddn.com/%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%94%BB%E7%BA%BF.PNG" alt="交互式画线"></li>
-<li>找到该函数下的 <code>CMyMFC2View::OnLButtonDown()</code>函数</li>
-<li>添加<code>MessageBox(&quot;Hello World!&quot;);</code>运行(点击鼠标左键会弹出框)</li>
-</ol>
-<h2 id="4-交互式画线"><a href="#4-交互式画线" class="headerlink" title="4.交互式画线"></a>4.交互式画线</h2><ul>
-<li>通过OnDraw，OnLButtonDown，OnLButtonUp函数实现拖动鼠标画线</li>
-</ul>
-<ol>
-<li><p>第一步在view类的public里面定义四个变量；<br><img src="http://pzs61rn70.bkt.clouddn.com/%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%94%BB%E7%BA%BF2.PNG" alt="交互式画线"></p>
-</li>
-<li><p>在OnDraw中的void CMyMFC2View::OnDraw(CDC* pDC)中添加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pDC-&gt;MoveTo(x1,y1);</span><br><span class="line">pDC-&gt;LineTo(x2,y2);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>找到<code>WM-LBVTTONDOWN</code>下的<code>CMyMFC2View::OnLButtonDown()</code>函数并写入以下语句：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   //将鼠标按下去的坐标点赋给创建的变量x1,y1</span><br><span class="line">x1 = point.x;   </span><br><span class="line">y1 = point.y;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>再创建一个鼠标抬起是的事件OnLButtonUp()函数(创建步骤与鼠标抬起事件类似忘了可以看3.1)</p>
-</li>
-<li><p>将OnLButtonDown函数体里添加鼠标抬起事件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   //将鼠标抬起的坐标点赋给创建的变量x2,y2</span><br><span class="line">x2 = point.x;   </span><br><span class="line">y2 = point.y;</span><br><span class="line">   //刷新窗口 </span><br><span class="line">   invalidate();</span><br></pre></td></tr></table></figure>
+<p>语法很简单, 调用函数的例子就不写了👇:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fun.call(<span class="keyword">this</span>, arg1, arg2, ....)</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
-<p>6.点击运行可以拖动鼠标画线<br><img src="http://pzs61rn70.bkt.clouddn.com/%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.PNG" alt="jieguo"></p>
+<h4 id="✨应用"><a href="#✨应用" class="headerlink" title="✨应用"></a>✨应用</h4><p> 应用: <strong>改变函数this指向</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name: <span class="string">"Tom"</span></span><br><span class="line">&#125;</span><br><span class="line">fn.call()       <span class="comment">// window</span></span><br><span class="line">fn.call(obj)    <span class="comment">// obj</span></span><br></pre></td></tr></table></figure>
+
+<p> 应用：<strong>子构造函数</strong>继承<strong>父构造函数</strong>的属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 子构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">name, age, score</span>) </span>&#123;</span><br><span class="line">	Father.call(<span class="keyword">this</span>, name, age, score);</span><br><span class="line">    <span class="keyword">this</span>.score = score;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> son1 = Son(<span class="string">"Tom"</span>, <span class="number">13</span>, <span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h3><p><code>apply</code>函数的使用与<code>call</code>很相似,都可以改变<code>this</code>指向,唯一与<code>call</code>的区别：传参形式不同，第二个参数以<strong>数组</strong>的方式传递。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fun.apply(<span class="keyword">this</span>,[arr])</span><br></pre></td></tr></table></figure>
+
+<h3 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h3><p>会<strong>改变</strong>this指向,<strong>不</strong>会调用函数,这一点与<code>appy</code>和<code>bind</code>不同的地方,也是他的两点🌤。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fun.bind(<span class="keyword">this</span>, arg1, arg2, ...)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>参数1：this</li>
+<li>参数2，3,..：传递的参数</li>
+<li>返回值：由置定<code>this</code>值和初始化参数改造的<strong>原函数拷贝</strong></li>
+</ul>
+<h4 id="✨应用-1"><a href="#✨应用-1" class="headerlink" title="✨应用"></a>✨应用</h4><p>按钮点击后禁用3秒。</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">"button"</span>)</span><br><span class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.disabled = <span class="literal">false</span>;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.disabled = <span class="literal">false</span>;		<span class="comment">//这里的this原来指向window</span></span><br><span class="line">    &#125;.bind(btn),<span class="number">3000</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -395,7 +379,9 @@
           
           <div class="post-tags">
             
-              <a href="/tags/C/" rel="tag"># C++</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            
+              <a href="/tags/面试/" rel="tag"># 面试</a>
             
           </div>
         
@@ -469,7 +455,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#快速入门MFC"><span class="nav-number">1.</span> <span class="nav-text">快速入门MFC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-创建环境"><span class="nav-number">1.1.</span> <span class="nav-text">1.创建环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-简单画线"><span class="nav-number">1.2.</span> <span class="nav-text">2.简单画线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-消息响应机制（实现简单弹出框）"><span class="nav-number">1.3.</span> <span class="nav-text">3.消息响应机制（实现简单弹出框）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-交互式画线"><span class="nav-number">1.4.</span> <span class="nav-text">4.交互式画线</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#call"><span class="nav-number">1.</span> <span class="nav-text">call</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#✨应用"><span class="nav-number">1.1.</span> <span class="nav-text">✨应用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apply"><span class="nav-number">2.</span> <span class="nav-text">apply</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bind"><span class="nav-number">3.</span> <span class="nav-text">bind</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#✨应用-1"><span class="nav-number">3.1.</span> <span class="nav-text">✨应用</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -514,7 +500,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

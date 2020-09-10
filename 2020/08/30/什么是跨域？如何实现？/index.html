@@ -56,7 +56,7 @@
 </script>
 
   <meta name="description" content="这篇关于跨域的简单描述与实现跨域的几种方式💤。">
-<meta name="keywords" content="网络">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="什么是跨域？如何实现？">
 <meta property="og:url" content="https://Elgar17.github.io/2020/08/30/什么是跨域？如何实现？/index.html">
@@ -64,7 +64,7 @@
 <meta property="og:description" content="这篇关于跨域的简单描述与实现跨域的几种方式💤。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://elgar17.github.io/2020/08/30/什么是跨域？如何实现？/%E7%9B%AE%E5%BD%95.png">
-<meta property="og:updated_time" content="2020-08-30T12:03:00.529Z">
+<meta property="og:updated_time" content="2020-09-10T12:28:08.002Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="什么是跨域？如何实现？">
 <meta name="twitter:description" content="这篇关于跨域的简单描述与实现跨域的几种方式💤。">
@@ -285,11 +285,19 @@
                 
               
 
-              <time title="创建时间：2020-08-30 13:43:12 / 修改时间：20:03:00" itemprop="dateCreated datePublished" datetime="2020-08-30T13:43:12+08:00">2020-08-30</time>
+              <time title="创建时间：2020-08-30 13:43:12" itemprop="dateCreated datePublished" datetime="2020-08-30T13:43:12+08:00">2020-08-30</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-10 20:28:08" itemprop="dateModified" datetime="2020-09-10T20:28:08+08:00">2020-09-10</time>
+              </span>
             
           
 
@@ -327,7 +335,7 @@
 
       
         <p>这篇关于跨域的简单描述与实现跨域的几种方式💤。</p><a id="more"></a>
-<ol>
+<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ol>
 <li><p>🔍什么是跨域？<br>浏览器从一个电脑端口访问另一个端口或另一个服务器是会有限制，请求的<strong>协议</strong>，<strong>端口</strong>，<strong>域名</strong>的任意一个不同都会有限制，解决这个限制就是跨域，尤其是前后端分离的页面很常见。</p>
 </li>
 <li><p>🔍有什么限制？</p>
@@ -345,7 +353,7 @@
 </ul>
 </li>
 </ol>
-<h4 id="一、-JSONP跨域"><a href="#一、-JSONP跨域" class="headerlink" title="一、 JSONP跨域"></a>一、 JSONP跨域</h4><h5 id="1、⚗原生JS实现JSONP"><a href="#1、⚗原生JS实现JSONP" class="headerlink" title="1、⚗原生JS实现JSONP"></a>1、⚗原生JS实现JSONP</h5><p>通过<code>script</code>  <code>img</code>等标签完成请求数据。</p>
+<h4 id="JSONP跨域"><a href="#JSONP跨域" class="headerlink" title="JSONP跨域"></a>JSONP跨域</h4><p><code>JSONP</code>不是什么新技术,别看这个名字多高尚。它是利用<code>script</code>,<code>img</code>等标签实现请求数据的。</p>
 <p>发送格式如：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    hello</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">            alert(data)</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 发送请求</span></span><br><span class="line"><span class="regexp">    &lt;script src="http:/</span><span class="regexp">/locallhost:91?callback=fun"&gt;&lt;/</span>script&gt;</span><br><span class="line">	<span class="comment">// 上面的script相当于一下的代码：因为后端获取的是要执行的函数</span></span><br><span class="line">	<span class="comment">// fun('你好')</span></span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
 
@@ -353,18 +361,18 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"></span><br><span class="line">express.get(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> funcname = req.query.callback;</span><br><span class="line">    res.send(fun+<span class="string">"('你好')"</span>)	<span class="comment">// fun('你好')</span></span><br><span class="line">&#125;)</span><br><span class="line">express.listen(<span class="number">91</span>);</span><br></pre></td></tr></table></figure>
 
 <p>所以在前端定义好这个函数即可</p>
-<h5 id="2、Vue实现跨域"><a href="#2、Vue实现跨域" class="headerlink" title="2、Vue实现跨域"></a>2、Vue实现跨域</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$http.json(<span class="string">'http://www.admin.com:91/login'</span>, &#123;</span><br><span class="line">    praams: &#123;&#125;,</span><br><span class="line">    jsonp: <span class="string">'handleCallback'</span></span><br><span class="line">&#125;).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(res);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="Vue实现跨域"><a href="#Vue实现跨域" class="headerlink" title="Vue实现跨域"></a>Vue实现跨域</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$http.json(<span class="string">'http://www.admin.com:91/login'</span>, &#123;</span><br><span class="line">    praams: &#123;&#125;,</span><br><span class="line">    jsonp: <span class="string">'handleCallback'</span></span><br><span class="line">&#125;).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(res);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h4 id="二、修改响应头-Node"><a href="#二、修改响应头-Node" class="headerlink" title="二、修改响应头(Node)"></a>二、修改响应头(Node)</h4><p>基本思想是用Node修该请求头。</p>
+<h4 id="修改响应头-Node"><a href="#修改响应头-Node" class="headerlink" title="修改响应头(Node)"></a>修改响应头(Node)</h4><p>基本思想是用Node修该请求头。</p>
 <p>文件目录：</p>
 <p><img src="%E7%9B%AE%E5%BD%95.png" alt="目录"></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> app = express();				<span class="comment">// &#123;1&#125;</span></span><br><span class="line">app.use(express.static(__dirname))	<span class="comment">// &#123;2&#125;</span></span><br><span class="line">app.listen(<span class="number">90</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> app2 = express();				<span class="comment">// &#123;3&#125;</span></span><br><span class="line">app2.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.header(<span class="string">"Access-Control-Allow-Origin"</span>,<span class="string">"*"</span>)	<span class="comment">// &#123;4&#125;</span></span><br><span class="line">    res.send(<span class="string">'hi'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">app2.listen(<span class="number">91</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> app = express();                <span class="comment">// &#123;1&#125;</span></span><br><span class="line">app.use(express.static(__dirname))  <span class="comment">// &#123;2&#125;</span></span><br><span class="line">app.listen(<span class="number">90</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> app2 = express();               <span class="comment">// &#123;3&#125;</span></span><br><span class="line">app2.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.header(<span class="string">"Access-Control-Allow-Origin"</span>,<span class="string">"*"</span>)	<span class="comment">// &#123;4&#125;</span></span><br><span class="line">    res.send(<span class="string">'hi'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">app2.listen(<span class="number">91</span>)</span><br></pre></td></tr></table></figure>
 
 <p>这里用Node创建了简单的两个服务(90端口和91端口), 创建的app{1}端口没有get请求这时候默认访问的就是根目录下的<code>index.html</code>文件html的内容如下👇，所以这个html文件就是运行90端口上的。里面的javascript就是访问91端口的内容。</p>
 <p>如果这样访问92端口不能直接访问的，所以我们在配置92端口设置请求头为任意值可以正常访问！   </p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>hello <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span>						</span><br><span class="line"><span class="javascript">        fetch(<span class="string">"http://localhost:91/"</span>)</span></span><br><span class="line"><span class="javascript">        .then(<span class="function"><span class="params">res</span>=&gt;</span>res.text())</span></span><br><span class="line"><span class="javascript">        .then(<span class="function"><span class="params">data</span>=&gt;</span>&#123;alert(data)&#125;);</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>###参考:<br>    - [1] <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS" target="_blank" rel="noopener">MDN</a></p>
+<p>参考:<br>[1] <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS" target="_blank" rel="noopener">MDN</a></p>
 
     </div>
 
@@ -380,7 +388,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/网络/" rel="tag"># 网络</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
             
           </div>
         
@@ -454,7 +462,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、-JSONP跨域"><span class="nav-number">1.</span> <span class="nav-text">一、 JSONP跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、⚗原生JS实现JSONP"><span class="nav-number">1.1.</span> <span class="nav-text">1、⚗原生JS实现JSONP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、Vue实现跨域"><span class="nav-number">1.2.</span> <span class="nav-text">2、Vue实现跨域</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、修改响应头-Node"><span class="nav-number">2.</span> <span class="nav-text">二、修改响应头(Node)</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSONP跨域"><span class="nav-number">2.</span> <span class="nav-text">JSONP跨域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue实现跨域"><span class="nav-number">3.</span> <span class="nav-text">Vue实现跨域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改响应头-Node"><span class="nav-number">4.</span> <span class="nav-text">修改响应头(Node)</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -499,7 +507,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

@@ -66,7 +66,7 @@
 <meta property="og:image" content="https://elgar17.github.io/2020/08/31/谈谈浅拷贝与深拷贝/001.jpg">
 <meta property="og:image" content="https://elgar17.github.io/2020/08/31/谈谈浅拷贝与深拷贝/clone.png">
 <meta property="og:image" content="https://elgar17.github.io/2020/08/31/谈谈浅拷贝与深拷贝/deepClone.jpg">
-<meta property="og:updated_time" content="2020-08-31T14:57:45.561Z">
+<meta property="og:updated_time" content="2020-09-10T12:13:54.726Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="谈谈浅拷贝与深拷贝">
 <meta name="twitter:description" content="这篇关于浅拷贝与深拷贝的介绍和实现📁。">
@@ -287,11 +287,19 @@
                 
               
 
-              <time title="创建时间：2020-08-31 22:44:31 / 修改时间：22:57:45" itemprop="dateCreated datePublished" datetime="2020-08-31T22:44:31+08:00">2020-08-31</time>
+              <time title="创建时间：2020-08-31 22:44:31" itemprop="dateCreated datePublished" datetime="2020-08-31T22:44:31+08:00">2020-08-31</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-10 20:13:54" itemprop="dateModified" datetime="2020-09-10T20:13:54+08:00">2020-09-10</time>
+              </span>
             
           
 
@@ -330,7 +338,7 @@
       
         <p>这篇关于浅拷贝与深拷贝的介绍和实现📁。</p><a id="more"></a>
 <p><img src="001.jpg" alt="深拷贝&amp;浅拷贝"></p>
-<h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1.  前言"></a>1.  前言</h3><ol>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ol>
 <li>先看下看一下下面这个例子热热身, 是不是很奇妙😅。</li>
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a1 = &#123;</span><br><span class="line">    say:<span class="string">"hhh"</span></span><br><span class="line">	&#125;;</span><br><span class="line"><span class="keyword">var</span> a2 = a1;</span><br><span class="line">a2.say = <span class="string">"haha"</span></span><br><span class="line"><span class="built_in">console</span>.log(a1.say)  <span class="comment">// haha</span></span><br><span class="line">        </span><br><span class="line"><span class="keyword">var</span> a1 =<span class="string">"hi"</span>;</span><br><span class="line"><span class="keyword">var</span> a2 = a1;</span><br><span class="line">a2 = <span class="string">"haha"</span></span><br><span class="line"><span class="built_in">console</span>.log(a1)     <span class="comment">// hi</span></span><br></pre></td></tr></table></figure>
@@ -343,14 +351,14 @@
 <li><code>instanceof</code>： 判断引用类型(必须为引用类型)，如<code>Date</code>,<code>Object</code>, <code>RegExp(正则)</code> </li>
 <li><code>typeof obj</code>：检测一个变量的类型。能检测: <code>undefined</code>,  <code>number</code>, <code>string</code>, <code>object</code>, <code>function</code>, <code>blooean</code>.(注意：<code>null typeof</code>返回<code>&quot;object&quot;</code>)</li>
 </ul>
-<h3 id="2-区别"><a href="#2-区别" class="headerlink" title="2. 区别"></a>2. 区别</h3><ul>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ul>
 <li>浅拷贝的基础类型会拷贝，但是引用类型的地址会与拷贝的对象指向同一个地址地址，所以<strong>一个对象的值改变会导致另一个对象也跟之变</strong>。</li>
 <li>深拷贝将两个对象完全分离出来。</li>
 </ul>
 <p>这里放个图以便大家理解：</p>
 <p><img src="clone.png" alt="浅拷贝"></p>
 <p><img src="deepClone.jpg" alt="深拷贝"></p>
-<h3 id="3-实现"><a href="#3-实现" class="headerlink" title="3. 实现"></a>3. 实现</h3><ol>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><ol>
 <li>浅拷贝</li>
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shallowClone</span>(<span class="params">sourse</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> target = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> sourse) &#123;</span><br><span class="line">         <span class="keyword">if</span> (sourse.hasOwnProperty(i)) &#123;</span><br><span class="line">          target[i] = sourse[i];</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> target;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line"><span class="keyword">var</span> a1 = &#123;</span><br><span class="line">    b: &#123;</span><br><span class="line">        c: <span class="string">"red"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> a2 = shallowClone(a1);</span><br><span class="line">a2.b.c   = <span class="string">"yellow"</span></span><br><span class="line"><span class="built_in">console</span>.log(a1.b.c)  <span class="comment">// yellow</span></span><br><span class="line"><span class="built_in">console</span>.log(a2.b.c)  <span class="comment">// yellow</span></span><br></pre></td></tr></table></figure>
@@ -360,7 +368,7 @@
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (obj === <span class="literal">null</span>) <span class="keyword">return</span> obj;</span><br><span class="line">    <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> <span class="built_in">Date</span>) <span class="keyword">return</span> <span class="keyword">new</span> Data(obj);</span><br><span class="line">	<span class="keyword">if</span> (obj <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">RegExp</span>(obj);</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">"object"</span>) <span class="keyword">return</span> obj;</span><br><span class="line">	<span class="keyword">var</span> cloneObj = <span class="keyword">new</span> obj.constructor();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    	<span class="keyword">if</span> (obj.hasOwnProperty(i)) &#123;</span><br><span class="line">           cloneObj[i] = deepClone(obj[i]);	<span class="comment">// 递归</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cloneObj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line"><span class="keyword">var</span> a1 = &#123;</span><br><span class="line">    b: &#123;</span><br><span class="line">        c: <span class="string">"red"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> a2 = deepClone(a1);</span><br><span class="line">a2.b.c   = <span class="string">"yellow"</span></span><br><span class="line"><span class="built_in">console</span>.log(a1.b.c)  <span class="comment">// red</span></span><br><span class="line"><span class="built_in">console</span>.log(a2.b.c)  <span class="comment">// yellow</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h5><p><a href="https://mp.weixin.qq.com/s/PgNcEvmLUlrBiAWdeKNCSw" target="_blank" rel="noopener"> [1] 前端工匠 </a></p>
+<h4 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h4><p><a href="https://mp.weixin.qq.com/s/PgNcEvmLUlrBiAWdeKNCSw" target="_blank" rel="noopener"> [1] 前端工匠 </a></p>
 
     </div>
 
@@ -446,7 +454,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-前言"><span class="nav-number">1.</span> <span class="nav-text">1.  前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-区别"><span class="nav-number">2.</span> <span class="nav-text">2. 区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-实现"><span class="nav-number">3.</span> <span class="nav-text">3. 实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#参考："><span class="nav-number">3.0.1.</span> <span class="nav-text">参考：</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区别"><span class="nav-number">2.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">3.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考："><span class="nav-number">3.1.</span> <span class="nav-text">参考：</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -491,7 +499,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
