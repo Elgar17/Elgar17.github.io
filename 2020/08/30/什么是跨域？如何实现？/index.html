@@ -64,7 +64,7 @@
 <meta property="og:description" content="这篇关于跨域的简单描述与实现跨域的几种方式💤。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://elgar17.github.io/2020/08/30/什么是跨域？如何实现？/%E7%9B%AE%E5%BD%95.png">
-<meta property="og:updated_time" content="2020-09-10T12:28:08.002Z">
+<meta property="og:updated_time" content="2020-09-17T13:42:17.056Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="什么是跨域？如何实现？">
 <meta name="twitter:description" content="这篇关于跨域的简单描述与实现跨域的几种方式💤。">
@@ -144,6 +144,8 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+        <p class="site-subtitle">专注于前端的吉小鹅同学</p>
+      
   </div>
 
   <div class="site-nav-toggle">
@@ -296,7 +298,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-10 20:28:08" itemprop="dateModified" datetime="2020-09-10T20:28:08+08:00">2020-09-10</time>
+                <time title="修改时间：2020-09-17 21:42:17" itemprop="dateModified" datetime="2020-09-17T21:42:17+08:00">2020-09-17</time>
               </span>
             
           
@@ -363,7 +365,7 @@
 <p>所以在前端定义好这个函数即可</p>
 <h4 id="Vue实现跨域"><a href="#Vue实现跨域" class="headerlink" title="Vue实现跨域"></a>Vue实现跨域</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$http.json(<span class="string">'http://www.admin.com:91/login'</span>, &#123;</span><br><span class="line">    praams: &#123;&#125;,</span><br><span class="line">    jsonp: <span class="string">'handleCallback'</span></span><br><span class="line">&#125;).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(res);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h4 id="修改响应头-Node"><a href="#修改响应头-Node" class="headerlink" title="修改响应头(Node)"></a>修改响应头(Node)</h4><p>基本思想是用Node修该请求头。</p>
+<h4 id="CORS跨域"><a href="#CORS跨域" class="headerlink" title="CORS跨域"></a>CORS跨域</h4><p>基本思想是用Node修该请求头。</p>
 <p>文件目录：</p>
 <p><img src="%E7%9B%AE%E5%BD%95.png" alt="目录"></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> app = express();                <span class="comment">// &#123;1&#125;</span></span><br><span class="line">app.use(express.static(__dirname))  <span class="comment">// &#123;2&#125;</span></span><br><span class="line">app.listen(<span class="number">90</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> app2 = express();               <span class="comment">// &#123;3&#125;</span></span><br><span class="line">app2.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.header(<span class="string">"Access-Control-Allow-Origin"</span>,<span class="string">"*"</span>)	<span class="comment">// &#123;4&#125;</span></span><br><span class="line">    res.send(<span class="string">'hi'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">app2.listen(<span class="number">91</span>)</span><br></pre></td></tr></table></figure>
@@ -462,7 +464,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSONP跨域"><span class="nav-number">2.</span> <span class="nav-text">JSONP跨域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue实现跨域"><span class="nav-number">3.</span> <span class="nav-text">Vue实现跨域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改响应头-Node"><span class="nav-number">4.</span> <span class="nav-text">修改响应头(Node)</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSONP跨域"><span class="nav-number">2.</span> <span class="nav-text">JSONP跨域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue实现跨域"><span class="nav-number">3.</span> <span class="nav-text">Vue实现跨域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CORS跨域"><span class="nav-number">4.</span> <span class="nav-text">CORS跨域</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -534,7 +536,7 @@
       
         
       
-        <a href="mailto:elgara@163.com" title="E-Mail &rarr; mailto:elgara@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="https://weibo.com/elgara" title="Weibo &rarr; https://weibo.com/elgara" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
       </span>
     
       <span class="links-of-author-item">
@@ -545,7 +547,7 @@
       
         
       
-        <a href="https://weibo.com/elgara" title="Weibo &rarr; https://weibo.com/elgara" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://plus.google.com/yourname" title="boke &rarr; https://plus.google.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i>boke</a>
       </span>
     
       <span class="links-of-author-item">
