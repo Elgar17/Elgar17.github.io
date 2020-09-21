@@ -64,7 +64,18 @@
 <meta property="og:description" content="这篇关于github与git的介绍🐒。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://elgar17.github.io/2020/01/17/github与git/git.png">
-<meta property="og:updated_time" content="2020-09-10T12:27:36.028Z">
+<meta property="og:image" content="https://elgar17.github.io/2020/01/17/github与git/reflog.png">
+<meta property="og:image" content="https://elgar17.github.io/2020/01/17/github与git/%E5%89%8D%E8%BF%9B%E5%90%8E%E9%80%80.png">
+<meta property="og:image" content="https://elgar17.github.io/2020/01/17/github与git/soft.png">
+<meta property="og:image" content="https://elgar17.github.io/2020/01/17/github与git/mixed.png">
+<meta property="og:image" content="https://elgar17.github.io/2020/01/17/github与git/hard.png">
+<meta property="og:image" content="https://elgar17.github.io/2020/01/17/github与git/fenzhi.png">
+<meta property="og:image" content="https://elgar17.github.io/2020/01/17/github与git/add_fenzhi.png">
+<meta property="og:image" content="https://elgar17.github.io/2020/01/17/github与git/change-fenzhi.png">
+<meta property="og:image" content="https://elgar17.github.io/2020/01/17/github与git/chongtu.png">
+<meta property="og:image" content="https://elgar17.github.io/2020/01/17/github与git/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81.png">
+<meta property="og:image" content="https://elgar17.github.io/2020/01/17/github与git/%E7%BB%A7%E7%BB%AD%E5%90%88%E5%B9%B6.png">
+<meta property="og:updated_time" content="2020-09-21T07:58:02.622Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github与git">
 <meta name="twitter:description" content="这篇关于github与git的介绍🐒。">
@@ -299,7 +310,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-10 20:27:36" itemprop="dateModified" datetime="2020-09-10T20:27:36+08:00">2020-09-10</time>
+                <time title="修改时间：2020-09-21 15:58:02" itemprop="dateModified" datetime="2020-09-21T15:58:02+08:00">2020-09-21</time>
               </span>
             
           
@@ -338,68 +349,188 @@
 
       
         <p>这篇关于github与git的介绍🐒。</p><a id="more"></a>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>git与github是什么？有什么关系？</p>
+<p>别看这两个很像，其实两个是完全不同的东西，<code>Git</code>与<code>Github</code>的关系相当于你的汽车和库房的关系。<code>Git</code>是你的车，<code>Github</code>是库房，那么代码就相当于库房里的木头。你伐的木(写的代码)通过装到车（git）才能运到你的库房。这样说就很容易理解了吧！</p>
 <ul>
 <li>github: 存放代码的远程仓库。</li>
 <li>git： 管理github的工具。</li>
 </ul>
-<h4 id="github基本概念"><a href="#github基本概念" class="headerlink" title="github基本概念"></a>github基本概念</h4><h5 id="仓库-（Repository）"><a href="#仓库-（Repository）" class="headerlink" title="仓库 （Repository）"></a>仓库 （Repository）</h5><ul>
-<li>存放你项目的地方，每个项目都存放一个仓库中</li>
-</ul>
-<h5 id="收藏-Star"><a href="#收藏-Star" class="headerlink" title="收藏(Star)"></a>收藏(Star)</h5><ul>
-<li>收藏项目的人数</li>
-</ul>
-<h5 id="复制和克隆-Fork"><a href="#复制和克隆-Fork" class="headerlink" title="复制和克隆(Fork)"></a>复制和克隆(Fork)</h5><ul>
-<li>复制别人的仓库到我的账号下创建一个新仓库</li>
-<li>独立存在的</li>
-</ul>
-<h5 id="发起请求-Pull-Request"><a href="#发起请求-Pull-Request" class="headerlink" title="发起请求(Pull Request)"></a>发起请求(Pull Request)</h5><ul>
-<li>基于fork的，你在别人的项目上做了改进、行把他合并这时候可以发请求</li>
-<li>发起人觉得不错、这是可以合并</li>
-</ul>
-<h5 id="关注-Watch"><a href="#关注-Watch" class="headerlink" title="关注(Watch)"></a>关注(Watch)</h5><ul>
-<li>关注项目，当项目更新时可以接收到通知</li>
-</ul>
-<h5 id="事物卡片-Issue"><a href="#事物卡片-Issue" class="headerlink" title="事物卡片(Issue)"></a>事物卡片(Issue)</h5><ul>
-<li>发现代码BUG,但是目前没有成型代码，需要讨论时用</li>
-</ul>
-<h5 id="Github主页"><a href="#Github主页" class="headerlink" title="Github主页"></a>Github主页</h5><ul>
-<li>用户动态和用户动态</li>
-</ul>
-<h5 id="仓库主页"><a href="#仓库主页" class="headerlink" title="仓库主页"></a>仓库主页</h5><ul>
-<li>项目代码</li>
-<li>版本</li>
-<li>收藏/关注/fork情况</li>
-</ul>
-<h5 id="个人主页"><a href="#个人主页" class="headerlink" title="个人主页"></a>个人主页</h5><ul>
-<li><p>个人信息</p>
-</li>
-<li><p>项目等</p>
-<hr>
-</li>
-</ul>
-<h4 id="2-注册"><a href="#2-注册" class="headerlink" title="2  注册"></a>2  注册</h4><ol>
-<li><p>注册</p>
-</li>
-<li><p>验证邮箱(收不到邮箱上设置白名单)</p>
-</li>
-</ol>
-<h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><ul>
-<li>分布式版本控制工具</li>
+<h3 id="Git🛠"><a href="#Git🛠" class="headerlink" title="Git🛠"></a>Git🛠</h3><h4 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h4><ul>
+<li>分布式版本控制工具   </li>
 </ul>
 <h5 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h5><ol>
 <li>从远程仓库中克隆Git资源作为本地仓库</li>
 <li>从本地仓库中checkout代码然后惊醒代码修改</li>
 <li>在提交代码之前将代码提交到暂存区</li>
 <li>提交修改 -&gt; 提交到本地仓库 ，本地仓库中修改的个历史版本</li>
-<li>修改完成之后，需要和团队共享代码时，可以push到远程仓库</li>
+<li>修改完成之后，需要和团队共享代码时，可以push到远程仓库<br><img src="git.png" alt="git工作流程"></li>
 </ol>
-<p><img src="git.png" alt="git工作流程"></p>
-<h5 id="基本信息设置"><a href="#基本信息设置" class="headerlink" title="基本信息设置"></a>基本信息设置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 1. 设置用户名</span><br><span class="line">git config --globa user.name &apos;elgar&apos;</span><br><span class="line"></span><br><span class="line">//2. 设置邮箱</span><br><span class="line">git config --global user.email &apos;elgar@163.com&apos;</span><br></pre></td></tr></table></figure>
+<h5 id="基本信息设置"><a href="#基本信息设置" class="headerlink" title="基本信息设置"></a>基本信息设置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 1. 设置用户名</span><br><span class="line">git config --globa user.name <span class="string">'elgar'</span></span><br><span class="line"></span><br><span class="line">//2. 设置邮箱</span><br><span class="line">git config --global user.email <span class="string">'elgar@163.com'</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 查看配置</span><br><span class="line">$ git config --list</span><br><span class="line"></span><br><span class="line">// 初始化文件，在该文件目录下生成git的隐藏文件</span><br><span class="line">$ git init</span><br><span class="line"></span><br><span class="line">// 创建文件</span><br><span class="line">$ touch xxx.html</span><br><span class="line"></span><br><span class="line">// 查看代码状态</span><br><span class="line">$ git status</span><br><span class="line"></span><br><span class="line">// 将文件提交到暂存区</span><br><span class="line">$ git add xxx.html</span><br><span class="line"></span><br><span class="line">// 将代码提交到仓库</span><br><span class="line">$ git commit -m &quot;提交描述&quot;</span><br><span class="line"></span><br><span class="line">// 将提文件交到远程仓库</span><br><span class="line">$ git push</span><br><span class="line"></span><br><span class="line">// 克隆</span><br><span class="line">$ git clone 地址</span><br></pre></td></tr></table></figure>
+<h5 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">// 查看配置</span><br><span class="line">$ git config --list</span><br><span class="line"></span><br><span class="line">// 初始化文件，在该文件目录下生成git的隐藏文件</span><br><span class="line">$ git init</span><br><span class="line"></span><br><span class="line">// 创建文件</span><br><span class="line">$ touch xxx.html</span><br><span class="line"></span><br><span class="line">// 查看代码状态</span><br><span class="line">$ git status</span><br><span class="line"></span><br><span class="line">// 将文件提交到暂存区</span><br><span class="line">$ git add xxx.html</span><br><span class="line">// 将暂存去拉回工作区</span><br><span class="line">$ git rm --cashed xxx.html</span><br><span class="line"></span><br><span class="line">// 将代码提交到仓库</span><br><span class="line">$ git commit -m <span class="string">"提交描述"</span></span><br><span class="line"></span><br><span class="line">// 将提文件交到远程仓库</span><br><span class="line">$ git push</span><br><span class="line"></span><br><span class="line">// 克隆</span><br><span class="line">$ git <span class="built_in">clone</span> 地址</span><br></pre></td></tr></table></figure>
 
-<h4 id="将项目提交到github"><a href="#将项目提交到github" class="headerlink" title="将项目提交到github"></a>将项目提交到github</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 1 创建仓库</span><br><span class="line"># 2 到项目目录初始化项目</span><br><span class="line">$ git init </span><br><span class="line"></span><br><span class="line"># 3 将文件添加到暂存区</span><br><span class="line">$ git add .</span><br><span class="line"></span><br><span class="line"># 4 将文件添加到工作区</span><br><span class="line">$ git commit -m &quot;初始化&quot;</span><br><span class="line"></span><br><span class="line"># 5 </span><br><span class="line">$ git remote add origin &quot;仓库ssh&quot;</span><br><span class="line"></span><br><span class="line"># 6 查看关联的远程仓库的详细信息</span><br><span class="line">$ git remote -v</span><br><span class="line"></span><br><span class="line"># 7 上传分支</span><br><span class="line">$ git push master</span><br></pre></td></tr></table></figure>
+<h4 id="将项目提交到github"><a href="#将项目提交到github" class="headerlink" title="将项目提交到github"></a>将项目提交到github</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1 本地创建仓库</span></span><br><span class="line"><span class="comment"># 2 到项目目录初始化项目</span></span><br><span class="line">$ git init </span><br><span class="line"></span><br><span class="line"><span class="comment"># 3 将文件添加到暂存区</span></span><br><span class="line">$ git add [file name]	// 单个文件</span><br><span class="line">$ git add . 		// 所有文件</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4 将文件添加到工作区</span></span><br><span class="line">$ git commit -m <span class="string">"初始化"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 5 连接github远程库与本地库</span></span><br><span class="line">$ git remote add origin <span class="string">"仓库ssh"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 6 查看关联的远程仓库的详细信息</span></span><br><span class="line">$ git remote -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 7 上传分支</span></span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
 
+<p>其他操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -lA  // 查看当前目录下的文件和隐藏文件</span><br><span class="line">ll    	// 查看文件包括创建时间</span><br></pre></td></tr></table></figure>
+
+<h4 id="VIM编辑器操作"><a href="#VIM编辑器操作" class="headerlink" title="VIM编辑器操作"></a>VIM编辑器操作</h4><p>vim是一个文本编辑器，Git自带的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 1 打开文件</span><br><span class="line">vim xx.x</span><br><span class="line"></span><br><span class="line">// 2 编辑内容点击i</span><br><span class="line"></span><br><span class="line">// 3 点击esc退出编辑模式</span><br><span class="line"></span><br><span class="line">// 4 输入:wq按enter保存退出</span><br></pre></td></tr></table></figure>
+
+<h4 id="前进后退"><a href="#前进后退" class="headerlink" title="前进后退"></a>前进后退</h4><p>查看日志</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span>  </span><br><span class="line">git <span class="built_in">log</span> --pretty=oneline //每行日志显示一行</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog   // 完整显示一行</span><br></pre></td></tr></table></figure>
+
+<p><img src="reflog.png" alt></p>
+<p>操作：</p>
+<ul>
+<li>索引(推荐)：前进后退<code>git reset --hard [索引]</code></li>
+<li>^ : 后退<code>git reset --hard HEAD^</code></li>
+<li>~：后退<code>git reset --hard HEAD~n</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard  [索引值] //索引值时</span><br></pre></td></tr></table></figure>
+
+<p><img src="%E5%89%8D%E8%BF%9B%E5%90%8E%E9%80%80.png" alt></p>
+<p> reset命令的三个参数：</p>
+<ul>
+<li><code>--soft</code>: 本地库移动HEAD指针</li>
+</ul>
+<p><img src="soft.png" alt></p>
+<ul>
+<li><code>--mixed</code>：本地库移动HEAD指针,重置暂存区</li>
+</ul>
+<p><img src="mixed.png" alt></p>
+<ul>
+<li><code>--hard</code>:本地库移动HEAD指针,重置暂存区,重置工作区</li>
+</ul>
+<p><img src="hard.png" alt></p>
+<p>找回永久删除的文件:</p>
+<p>使用<code>git reset --hard  [索引值]</code>可以找回删除的文件</p>
+<h4 id="比较文件差异"><a href="#比较文件差异" class="headerlink" title="比较文件差异"></a>比较文件差异</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git diff      				  // 比较多有文件</span><br><span class="line">git diff [文件名]  		  	  // 工作区与暂存区进行比较</span><br><span class="line">git diff HEAD [索引] [文件名]              // 工作区文件与历史版本进行比较</span><br></pre></td></tr></table></figure>
+
+<h4 id="git分支-⭐⭐"><a href="#git分支-⭐⭐" class="headerlink" title="git分支(⭐⭐)"></a>git分支(⭐⭐)</h4><p>相当于复制几份，然后同时开发。各个分支互不影响。</p>
+<p><img src="fenzhi.png" alt></p>
+<p>好处：</p>
+<ul>
+<li><p>并行开发多个分支，提高效率</p>
+</li>
+<li><p>相互独立，一个分支开发失败，不会影响其他分支。</p>
+</li>
+</ul>
+<ol>
+<li>查看所有分支</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -v</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>创建分支</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch hot_fix</span><br></pre></td></tr></table></figure>
+
+<p><img src="add_fenzhi.png" alt></p>
+<ol start="3">
+<li>切换分支</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout [分支名]</span><br></pre></td></tr></table></figure>
+
+<p><img src="change-fenzhi.png" alt></p>
+<ol start="4">
+<li><p>合并：</p>
+<ul>
+<li>先切换到<strong>接受</strong>的分支上</li>
+<li>执行<code>merge</code>命令</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge [合并的分支名]</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><p>解决冲突</p>
+<ul>
+<li>编辑文件删除特殊符号</li>
+<li>修改文件修改到满意程度，保存退出</li>
+<li><code>git add [文件名]</code> 或 <code>git add .</code></li>
+<li><code>git commit -m &quot;日志&quot;</code>  注意：<strong>不带文件名</strong> </li>
+</ul>
+</li>
+</ol>
+<p>冲突？两个分支的同一个地方都修改了就会产生冲突？</p>
+<p>   <img src="chongtu.png" alt></p>
+<p>这时候我们查看文件，文件没合并，我们需要手动修改一下。</p>
+<p><img src="%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81.png" alt></p>
+<p>修改完，使用<code>git add .</code> <code>git commit</code>提交以下就没有了</p>
+<p><img src="%E7%BB%A7%E7%BB%AD%E5%90%88%E5%B9%B6.png" alt></p>
+<hr>
+<h3 id="Github🎪"><a href="#Github🎪" class="headerlink" title="Github🎪"></a>Github🎪</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><ol>
+<li><p>仓库 （Repository）</p>
+<ul>
+<li>存放你项目的地方，每个项目都存放一个仓库中</li>
+</ul>
+</li>
+<li><p>收藏(Star)</p>
+<ul>
+<li>收藏项目的人数</li>
+</ul>
+</li>
+<li><p>复制和克隆(Fork)</p>
+<ul>
+<li>复制别人的仓库到我的账号下创建一个新仓库</li>
+<li>独立存在的</li>
+</ul>
+</li>
+<li><p>发起请求(Pull Request)</p>
+<ul>
+<li>基于fork的，你在别人的项目上做了改进、行把他合并这时候可以发请求</li>
+<li>发起人觉得不错、这是可以合并</li>
+</ul>
+</li>
+<li><p>关注(Watch)</p>
+<ul>
+<li>关注项目，当项目更新时可以接收到通知</li>
+</ul>
+</li>
+<li><p>事物卡片(Issue)</p>
+<ul>
+<li>发现代码BUG,但是目前没有成型代码，需要讨论时用</li>
+</ul>
+</li>
+</ol>
+<h4 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h4><ol>
+<li><p>注册</p>
+</li>
+<li><p>验证邮箱(收不到邮箱上设置白名单)</p>
+</li>
+</ol>
+<h4 id="提交基本流程"><a href="#提交基本流程" class="headerlink" title="提交基本流程"></a>提交基本流程</h4><ol>
+<li>初始化本地库</li>
+<li>github上创建一个仓库</li>
+<li>与远程库连接<code>git remote add [github仓库地址]</code> <ul>
+<li>查看<code>git remote -v</code></li>
+</ul>
+</li>
+<li>推送<code>git push origin [分支名]</code></li>
+</ol>
+<h4 id="克隆基本流程"><a href="#克隆基本流程" class="headerlink" title="克隆基本流程"></a>克隆基本流程</h4><ol>
+<li>克隆：远程库下载到本地，创建origin远程地址别名，初始化本地库<ul>
+<li><code>git clone [仓库地址]</code></li>
+</ul>
+</li>
+</ol>
+<h5 id="pull"><a href="#pull" class="headerlink" title="pull"></a>pull</h5><p>代码将从远程<strong>拉去到本地</strong>并与<strong>本地的分支进行合并</strong>，所以<code>pull = fatch + merge</code></p>
+<h5 id="fatch"><a href="#fatch" class="headerlink" title="fatch"></a>fatch</h5><ul>
+<li><p>抓取远程库<code>git fatch origin [分支名]</code></p>
+</li>
+<li></li>
+<li><p>次不会改变本地工作区的文件</p>
+</li>
+<li><p>切换到从远程下载的分支<code>git checkou origin/master</code></p>
+</li>
+</ul>
+<h5 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h5><p>本地仓库与远程仓库的合并</p>
+<ul>
+<li>站在本地<code>master</code>分支上<code>git merge origin/master</code></li>
+</ul>
 
     </div>
 
@@ -491,7 +622,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#github基本概念"><span class="nav-number">1.</span> <span class="nav-text">github基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#仓库-（Repository）"><span class="nav-number">1.1.</span> <span class="nav-text">仓库 （Repository）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#收藏-Star"><span class="nav-number">1.2.</span> <span class="nav-text">收藏(Star)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#复制和克隆-Fork"><span class="nav-number">1.3.</span> <span class="nav-text">复制和克隆(Fork)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#发起请求-Pull-Request"><span class="nav-number">1.4.</span> <span class="nav-text">发起请求(Pull Request)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关注-Watch"><span class="nav-number">1.5.</span> <span class="nav-text">关注(Watch)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#事物卡片-Issue"><span class="nav-number">1.6.</span> <span class="nav-text">事物卡片(Issue)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Github主页"><span class="nav-number">1.7.</span> <span class="nav-text">Github主页</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#仓库主页"><span class="nav-number">1.8.</span> <span class="nav-text">仓库主页</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#个人主页"><span class="nav-number">1.9.</span> <span class="nav-text">个人主页</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-注册"><span class="nav-number">2.</span> <span class="nav-text">2  注册</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git"><span class="nav-number"></span> <span class="nav-text">git</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#工作流程"><span class="nav-number">0.1.</span> <span class="nav-text">工作流程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基本信息设置"><span class="nav-number">0.2.</span> <span class="nav-text">基本信息设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基本命令"><span class="nav-number">0.3.</span> <span class="nav-text">基本命令</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将项目提交到github"><span class="nav-number">1.</span> <span class="nav-text">将项目提交到github</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git🛠"><span class="nav-number">2.</span> <span class="nav-text">Git🛠</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本介绍"><span class="nav-number">2.1.</span> <span class="nav-text">基本介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#工作流程"><span class="nav-number">2.1.1.</span> <span class="nav-text">工作流程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基本信息设置"><span class="nav-number">2.1.2.</span> <span class="nav-text">基本信息设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基本命令"><span class="nav-number">2.1.3.</span> <span class="nav-text">基本命令</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将项目提交到github"><span class="nav-number">2.2.</span> <span class="nav-text">将项目提交到github</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VIM编辑器操作"><span class="nav-number">2.3.</span> <span class="nav-text">VIM编辑器操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前进后退"><span class="nav-number">2.4.</span> <span class="nav-text">前进后退</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#比较文件差异"><span class="nav-number">2.5.</span> <span class="nav-text">比较文件差异</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git分支-⭐⭐"><span class="nav-number">2.6.</span> <span class="nav-text">git分支(⭐⭐)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Github🎪"><span class="nav-number">3.</span> <span class="nav-text">Github🎪</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本概念"><span class="nav-number">3.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注册"><span class="nav-number">3.2.</span> <span class="nav-text">注册</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提交基本流程"><span class="nav-number">3.3.</span> <span class="nav-text">提交基本流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#克隆基本流程"><span class="nav-number">3.4.</span> <span class="nav-text">克隆基本流程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#pull"><span class="nav-number">3.4.1.</span> <span class="nav-text">pull</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#fatch"><span class="nav-number">3.4.2.</span> <span class="nav-text">fatch</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#merge"><span class="nav-number">3.4.3.</span> <span class="nav-text">merge</span></a></li></ol></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
