@@ -55,23 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="这篇关于浅拷贝与深拷贝的介绍和实现📁。">
-<meta name="keywords" content="JavaScript">
+  <meta name="description" content="this指向 预编译是this指向window 谁调用指向谁 call apply bind可以改变this指向 全局指向window">
+<meta name="keywords" content="JavaScript,面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="谈谈浅拷贝与深拷贝">
-<meta property="og:url" content="https://Elgar17.github.io/2020/08/31/谈谈浅拷贝与深拷贝/index.html">
+<meta property="og:title" content="JS中的This指向问题">
+<meta property="og:url" content="https://Elgar17.github.io/2020/09/26/JS中的This指向问题/index.html">
 <meta property="og:site_name" content="Elgar&#39;s blog">
-<meta property="og:description" content="这篇关于浅拷贝与深拷贝的介绍和实现📁。">
+<meta property="og:description" content="this指向 预编译是this指向window 谁调用指向谁 call apply bind可以改变this指向 全局指向window">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://elgar17.github.io/2020/08/31/谈谈浅拷贝与深拷贝/001.jpg">
-<meta property="og:image" content="https://elgar17.github.io/2020/08/31/谈谈浅拷贝与深拷贝/clone.png">
-<meta property="og:image" content="https://elgar17.github.io/2020/08/31/谈谈浅拷贝与深拷贝/deepClone.jpg">
-<meta property="og:updated_time" content="2020-09-10T12:13:54.726Z">
+<meta property="og:updated_time" content="2020-09-26T06:05:52.153Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="谈谈浅拷贝与深拷贝">
-<meta name="twitter:description" content="这篇关于浅拷贝与深拷贝的介绍和实现📁。">
-<meta name="twitter:image" content="https://elgar17.github.io/2020/08/31/谈谈浅拷贝与深拷贝/001.jpg">
-  <link rel="canonical" href="https://Elgar17.github.io/2020/08/31/谈谈浅拷贝与深拷贝/">
+<meta name="twitter:title" content="JS中的This指向问题">
+<meta name="twitter:description" content="this指向 预编译是this指向window 谁调用指向谁 call apply bind可以改变this指向 全局指向window">
+  <link rel="canonical" href="https://Elgar17.github.io/2020/09/26/JS中的This指向问题/">
 
 
 <script id="page-configurations">
@@ -85,7 +81,7 @@
   };
 </script>
 
-  <title>谈谈浅拷贝与深拷贝 | Elgar's blog</title>
+  <title>JS中的This指向问题 | Elgar's blog</title>
   
 
 
@@ -262,7 +258,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://Elgar17.github.io/2020/08/31/谈谈浅拷贝与深拷贝/">
+    <link itemprop="mainEntityOfPage" href="https://Elgar17.github.io/2020/09/26/JS中的This指向问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elgar">
@@ -274,7 +270,7 @@
       <meta itemprop="name" content="Elgar's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">谈谈浅拷贝与深拷贝
+        <h1 class="post-title" itemprop="name headline">JS中的This指向问题
 
           
         </h1>
@@ -290,24 +286,16 @@
                 
               
 
-              <time title="创建时间：2020-08-31 22:44:31" itemprop="dateCreated datePublished" datetime="2020-08-31T22:44:31+08:00">2020-08-31</time>
+              <time title="创建时间：2020-09-26 14:03:46 / 修改时间：14:05:52" itemprop="dateCreated datePublished" datetime="2020-09-26T14:03:46+08:00">2020-09-26</time>
             </span>
           
             
 
             
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-10 20:13:54" itemprop="dateModified" datetime="2020-09-10T20:13:54+08:00">2020-09-10</time>
-              </span>
-            
           
 
           
-            <span id="/2020/08/31/谈谈浅拷贝与深拷贝/" class="post-meta-item leancloud_visitors" data-flag-title="谈谈浅拷贝与深拷贝" title="阅读次数">
+            <span id="/2020/09/26/JS中的This指向问题/" class="post-meta-item leancloud_visitors" data-flag-title="JS中的This指向问题" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -325,7 +313,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/08/31/谈谈浅拷贝与深拷贝/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/08/31/谈谈浅拷贝与深拷贝/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/09/26/JS中的This指向问题/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/JS中的This指向问题/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -339,39 +327,50 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>这篇关于浅拷贝与深拷贝的介绍和实现📁。</p><a id="more"></a>
-<p><img src="001.jpg" alt="深拷贝&amp;浅拷贝"></p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ol>
-<li>先看下看一下下面这个例子热热身, 是不是很奇妙😅。</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a1 = &#123;</span><br><span class="line">    say:<span class="string">"hhh"</span></span><br><span class="line">	&#125;;</span><br><span class="line"><span class="keyword">var</span> a2 = a1;</span><br><span class="line">a2.say = <span class="string">"haha"</span></span><br><span class="line"><span class="built_in">console</span>.log(a1.say)  <span class="comment">// haha</span></span><br><span class="line">        </span><br><span class="line"><span class="keyword">var</span> a1 =<span class="string">"hi"</span>;</span><br><span class="line"><span class="keyword">var</span> a2 = a1;</span><br><span class="line">a2 = <span class="string">"haha"</span></span><br><span class="line"><span class="built_in">console</span>.log(a1)     <span class="comment">// hi</span></span><br></pre></td></tr></table></figure>
+        <h3 id="this指向"><a href="#this指向" class="headerlink" title="this指向"></a>this指向</h3><ol>
+<li>预编译是<code>this</code>指向<code>window</code></li>
+<li>谁调用指向谁</li>
+<li><code>call</code> <code>apply</code> <code>bind</code>可以改变<code>this</code>指向</li>
+<li>全局指向<code>window</code> </li>
+</ol><a id="more"></a>
+<h4 id="1-🙇‍♂️全局的this指向window"><a href="#1-🙇‍♂️全局的this指向window" class="headerlink" title="1. 🙇‍♂️全局的this指向window"></a>1. 🙇‍♂️全局的<code>this</code>指向<code>window</code></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>); 									 <span class="comment">//window</span></span><br><span class="line">fuction fu()&#123;<span class="built_in">console</span>.log(<span class="keyword">this</span>); &#125;  					 <span class="comment">//window</span></span><br><span class="line">setTimeout(fuction fu()&#123;<span class="built_in">console</span>.log(<span class="keyword">this</span>); &#125;,<span class="number">1000</span>)   <span class="comment">//window</span></span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>对了本文章用到的一些知识点,先看一下，可以帮助你更深刻的理解。</li>
-</ol>
-<ul>
-<li><code>obj.hasOwnProperty[i]</code>： 判断对象是否存在这个属性</li>
-<li><code>instanceof</code>： 判断引用类型(必须为引用类型)，如<code>Date</code>,<code>Object</code>, <code>RegExp(正则)</code> </li>
-<li><code>typeof obj</code>：检测一个变量的类型。能检测: <code>undefined</code>,  <code>number</code>, <code>string</code>, <code>object</code>, <code>function</code>, <code>blooean</code>.(注意：<code>null typeof</code>返回<code>&quot;object&quot;</code>)</li>
+<h4 id="2-🌿方法中的this指向调用者"><a href="#2-🌿方法中的this指向调用者" class="headerlink" title="2. 🌿方法中的this指向调用者"></a>2. 🌿方法中的<code>this</code>指向调用者</h4><p>谁调用了这个方法，<code>this</code>就指向谁</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    say: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>)  <span class="comment">// obj</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.say();</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-🍹隐式绑定-⭐"><a href="#1-🍹隐式绑定-⭐" class="headerlink" title="1) 🍹隐式绑定(⭐)"></a>1) 🍹隐式绑定(⭐)</h5><p>全局中的函数绑定给一个对象中的方法时<strong>this</strong>指向会改变。其实这个跟上面这个没什么区别，</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="keyword">this</span>)  <span class="comment">// obj</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    say:say</span><br><span class="line">&#125;</span><br><span class="line">obj.say();</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-隐式丢失（⭐⭐⭐）"><a href="#2-隐式丢失（⭐⭐⭐）" class="headerlink" title="2) 隐式丢失（⭐⭐⭐）"></a>2) 隐式丢失（⭐⭐⭐）</h5><p>每一个函数执行之前都会有一个预编译的环节，这时函数会生成自己的AO，this会指向<code>window</code>.这里有个特殊情况,下面的函数执行后<code>this</code>指向预编译的<code>window</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"window"</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>)  </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name: <span class="string">"obj"</span>,</span><br><span class="line">    say: say     <span class="comment">// 隐式绑定</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fun = obj.say;  <span class="comment">// &#123;1&#125;this指向改变,隐式丢失</span></span><br><span class="line">fun()           	<span class="comment">// window</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>⚠注意</strong>：{1}处的函数赋值千万不要写成<code>var fun = obj.say();</code>这个样子。这样写是执行<code>obj.say()</code>函数，把结果赋<strong>值给fun变量</strong>，这样运行”fun”肯定会报错的。别问我怎么知道的，这个坑我踩过😭。</p>
+<h4 id="3-🏭构造函数中this指向构造函数"><a href="#3-🏭构造函数中this指向构造函数" class="headerlink" title="3. 🏭构造函数中this指向构造函数"></a>3. 🏭构造函数中<code>this</code>指向构造函数</h4><ul>
+<li><p><code>constructor</code>里面的this指向是实例对象</p>
+</li>
+<li><p>方法里的<code>this</code>指向（调用者），如果是一个按钮调用者方法，<code>this</code>就指向按钮</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fun</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);  <span class="comment">//fun</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fun = <span class="keyword">new</span> Fun;</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
-<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ul>
-<li>浅拷贝的基础类型会拷贝，但是引用类型的地址会与拷贝的对象指向同一个地址地址，所以<strong>一个对象的值改变会导致另一个对象也跟之变</strong>。</li>
-<li>深拷贝将两个对象完全分离出来。</li>
-</ul>
-<p>这里放个图以便大家理解：</p>
-<p><img src="clone.png" alt="浅拷贝"></p>
-<p><img src="deepClone.jpg" alt="深拷贝"></p>
-<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><ol>
-<li>浅拷贝</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shallowClone</span>(<span class="params">sourse</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> target = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> sourse) &#123;</span><br><span class="line">         <span class="keyword">if</span> (sourse.hasOwnProperty(i)) &#123;</span><br><span class="line">          target[i] = sourse[i];</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> target;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line"><span class="keyword">var</span> a1 = &#123;</span><br><span class="line">    b: &#123;</span><br><span class="line">        c: <span class="string">"red"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> a2 = shallowClone(a1);</span><br><span class="line">a2.b.c   = <span class="string">"yellow"</span></span><br><span class="line"><span class="built_in">console</span>.log(a1.b.c)  <span class="comment">// yellow</span></span><br><span class="line"><span class="built_in">console</span>.log(a2.b.c)  <span class="comment">// yellow</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-💯真题-字节"><a href="#4-💯真题-字节" class="headerlink" title="4. 💯真题[字节]"></a>4. 💯真题[字节]</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">    <span class="keyword">this</span>.b = <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> a()    	<span class="comment">// &#123;1&#125;</span></span><br><span class="line">a.prototype.b = <span class="number">9</span>; 	<span class="comment">// &#123;2&#125;</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="number">7</span>;			<span class="comment">// &#123;3&#125;</span></span><br><span class="line">a()					<span class="comment">// &#123;4&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(b, c.b)</span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>深拷贝</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (obj === <span class="literal">null</span>) <span class="keyword">return</span> obj;</span><br><span class="line">    <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> <span class="built_in">Date</span>) <span class="keyword">return</span> <span class="keyword">new</span> Data(obj);</span><br><span class="line">	<span class="keyword">if</span> (obj <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">RegExp</span>(obj);</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">"object"</span>) <span class="keyword">return</span> obj;</span><br><span class="line">	<span class="keyword">var</span> cloneObj = <span class="keyword">new</span> obj.constructor();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    	<span class="keyword">if</span> (obj.hasOwnProperty(i)) &#123;</span><br><span class="line">           cloneObj[i] = deepClone(obj[i]);	<span class="comment">// 递归</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cloneObj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line"><span class="keyword">var</span> a1 = &#123;</span><br><span class="line">    b: &#123;</span><br><span class="line">        c: <span class="string">"red"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> a2 = deepClone(a1);</span><br><span class="line">a2.b.c   = <span class="string">"yellow"</span></span><br><span class="line"><span class="built_in">console</span>.log(a1.b.c)  <span class="comment">// red</span></span><br><span class="line"><span class="built_in">console</span>.log(a2.b.c)  <span class="comment">// yellow</span></span><br></pre></td></tr></table></figure>
+<p>分析：</p>
+<p>{1}第一次new一个a的时候this指向a本身。生成的c函数与a完全分离，所以c身上有个b的属性值等于3，</p>
+<p>{2}也是一个独立的属性</p>
+<p>{3} 是全局变量这时候b=7</p>
+<p>{4}a执行时在全局所以里面的<code>this</code>指向<code>window</code>这时a函数会覆盖全局的变量<code>b</code>变成了三3</p>
+<p>最后打印结果是：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b = <span class="number">3</span> , c.b = <span class="number">3</span>, a.prototype.b = <span class="number">9</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h4><p><a href="https://mp.weixin.qq.com/s/PgNcEvmLUlrBiAWdeKNCSw" target="_blank" rel="noopener"> [1] 前端工匠 </a></p>
+<h4 id="5-✨总结："><a href="#5-✨总结：" class="headerlink" title="5. ✨总结："></a>5. ✨总结：</h4><ol>
+<li><strong>普通函数</strong>this指向window</li>
+<li><strong>对象</strong>里的函数(方法)指向对象</li>
+<li><strong>构造函数</strong>的this指向实例对象，原型对象的this也指向实例对象</li>
+<li><strong>绑定事件函数</strong>的this 指向 函数的调用者 （如果btn上就指向btn）</li>
+<li><strong>定时器</strong>里面的this也指向window</li>
+<li><strong>立即执行函数</strong>里的this也指向window</li>
+</ol>
 
     </div>
 
@@ -391,6 +390,8 @@
             
               <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
             
+              <a href="/tags/面试/" rel="tag"># 面试</a>
+            
           </div>
         
 
@@ -399,8 +400,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2020/08/30/什么是跨域？如何实现？/" rel="next" title="什么是跨域？如何实现？">
-                  <i class="fa fa-chevron-left"></i> 什么是跨域？如何实现？
+                <a href="/2020/08/31/谈谈浅拷贝与深拷贝/" rel="next" title="谈谈浅拷贝与深拷贝">
+                  <i class="fa fa-chevron-left"></i> 谈谈浅拷贝与深拷贝
                 </a>
               
             </div>
@@ -408,10 +409,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2020/09/26/JS中的This指向问题/" rel="prev" title="JS中的This指向问题">
-                  JS中的This指向问题 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -463,7 +460,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区别"><span class="nav-number">2.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">3.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考："><span class="nav-number">3.1.</span> <span class="nav-text">参考：</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#this指向"><span class="nav-number">1.</span> <span class="nav-text">this指向</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-🙇‍♂️全局的this指向window"><span class="nav-number">1.1.</span> <span class="nav-text">1. 🙇‍♂️全局的this指向window</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-🌿方法中的this指向调用者"><span class="nav-number">1.2.</span> <span class="nav-text">2. 🌿方法中的this指向调用者</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-🍹隐式绑定-⭐"><span class="nav-number">1.2.1.</span> <span class="nav-text">1) 🍹隐式绑定(⭐)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-隐式丢失（⭐⭐⭐）"><span class="nav-number">1.2.2.</span> <span class="nav-text">2) 隐式丢失（⭐⭐⭐）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-🏭构造函数中this指向构造函数"><span class="nav-number">1.3.</span> <span class="nav-text">3. 🏭构造函数中this指向构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-💯真题-字节"><span class="nav-number">1.4.</span> <span class="nav-text">4. 💯真题[字节]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-✨总结："><span class="nav-number">1.5.</span> <span class="nav-text">5. ✨总结：</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->

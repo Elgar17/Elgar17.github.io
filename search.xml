@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JS中的This指向问题]]></title>
+    <url>%2F2020%2F09%2F26%2FJS%E4%B8%AD%E7%9A%84This%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[this指向 预编译是this指向window 谁调用指向谁 call apply bind可以改变this指向 全局指向window 1. 🙇‍♂️全局的this指向window123console.log(this); //windowfuction fu()&#123;console.log(this); &#125; //windowsetTimeout(fuction fu()&#123;console.log(this); &#125;,1000) //window 2. 🌿方法中的this指向调用者谁调用了这个方法，this就指向谁 123456var obj = &#123; say: function()&#123; console.log(this) // obj &#125;&#125;obj.say(); 1) 🍹隐式绑定(⭐)全局中的函数绑定给一个对象中的方法时this指向会改变。其实这个跟上面这个没什么区别， 1234567function say()&#123; console.log(this) // obj&#125;var obj = &#123; say:say&#125;obj.say(); 2) 隐式丢失（⭐⭐⭐）每一个函数执行之前都会有一个预编译的环节，这时函数会生成自己的AO，this会指向window.这里有个特殊情况,下面的函数执行后this指向预编译的window. 12345678910var name = "window"function say()&#123; console.log(this) &#125;var obj = &#123; name: "obj", say: say // 隐式绑定&#125;var fun = obj.say; // &#123;1&#125;this指向改变,隐式丢失fun() // window ⚠注意：{1}处的函数赋值千万不要写成var fun = obj.say();这个样子。这样写是执行obj.say()函数，把结果赋值给fun变量，这样运行”fun”肯定会报错的。别问我怎么知道的，这个坑我踩过😭。 3. 🏭构造函数中this指向构造函数 constructor里面的this指向是实例对象 方法里的this指向（调用者），如果是一个按钮调用者方法，this就指向按钮 1234function Fun()&#123; console.log(this); //fun&#125;var fun = new Fun; 4. 💯真题[字节]123456789var a = function () &#123; console.log(this) this.b = 3&#125;var c = new a() // &#123;1&#125;a.prototype.b = 9; // &#123;2&#125;var b = 7; // &#123;3&#125;a() // &#123;4&#125;console.log(b, c.b) 分析： {1}第一次new一个a的时候this指向a本身。生成的c函数与a完全分离，所以c身上有个b的属性值等于3， {2}也是一个独立的属性 {3} 是全局变量这时候b=7 {4}a执行时在全局所以里面的this指向window这时a函数会覆盖全局的变量b变成了三3 最后打印结果是： 1b = 3 , c.b = 3, a.prototype.b = 9 5. ✨总结： 普通函数this指向window 对象里的函数(方法)指向对象 构造函数的this指向实例对象，原型对象的this也指向实例对象 绑定事件函数的this 指向 函数的调用者 （如果btn上就指向btn） 定时器里面的this也指向window 立即执行函数里的this也指向window]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[谈谈浅拷贝与深拷贝]]></title>
     <url>%2F2020%2F08%2F31%2F%E8%B0%88%E8%B0%88%E6%B5%85%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D%2F</url>
     <content type="text"><![CDATA[这篇关于浅拷贝与深拷贝的介绍和实现📁。 前言 先看下看一下下面这个例子热热身, 是不是很奇妙😅。 1234567891011var a1 = &#123; say:"hhh" &#125;;var a2 = a1;a2.say = "haha"console.log(a1.say) // haha var a1 ="hi";var a2 = a1;a2 = "haha"console.log(a1) // hi 对了本文章用到的一些知识点,先看一下，可以帮助你更深刻的理解。 obj.hasOwnProperty[i]： 判断对象是否存在这个属性 instanceof： 判断引用类型(必须为引用类型)，如Date,Object, RegExp(正则) typeof obj：检测一个变量的类型。能检测: undefined, number, string, object, function, blooean.(注意：null typeof返回&quot;object&quot;) 区别 浅拷贝的基础类型会拷贝，但是引用类型的地址会与拷贝的对象指向同一个地址地址，所以一个对象的值改变会导致另一个对象也跟之变。 深拷贝将两个对象完全分离出来。 这里放个图以便大家理解： 实现 浅拷贝 1234567891011121314151617181920function shallowClone(sourse) &#123; var target = &#123;&#125;; for (var i in sourse) &#123; if (sourse.hasOwnProperty(i)) &#123; target[i] = sourse[i]; &#125; &#125; return target;&#125;// 使用var a1 = &#123; b: &#123; c: "red" &#125;&#125;;var a2 = shallowClone(a1);a2.b.c = "yellow"console.log(a1.b.c) // yellowconsole.log(a2.b.c) // yellow 深拷贝 123456789101112131415161718192021222324function deepClone(obj) &#123; if (obj === null) return obj; if (obj instanceof Date) return new Data(obj); if (obj instanceof RegExp) return new RegExp(obj); if (typeof obj !== "object") return obj; var cloneObj = new obj.constructor(); for (var i in obj) &#123; if (obj.hasOwnProperty(i)) &#123; cloneObj[i] = deepClone(obj[i]); // 递归 &#125; &#125; return cloneObj;&#125;// 使用var a1 = &#123; b: &#123; c: "red" &#125;&#125;;var a2 = deepClone(a1);a2.b.c = "yellow"console.log(a1.b.c) // redconsole.log(a2.b.c) // yellow 参考： [1] 前端工匠]]></content>
@@ -67,9 +79,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[CSS中常用的的@规则]]></title>
+    <title><![CDATA[如何用LESS写出高质量CSS]]></title>
     <url>%2F2019%2F12%2F08%2FCSS%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E7%9A%84-%E8%A7%84%E5%88%99%2F</url>
-    <content type="text"><![CDATA[这里我汇总了一些常见的CSSCSS中常用的的@规则，欢迎阅读🌈。 @import 在CSS文件中导入另一个CSS文件 1@import"xx.css" charset 用于提示css文件使用的字符串编码方式 必须放在句首1@charset "utf-8" @meida 媒体查询 可以查询到用户手机的尺寸 12345@media print &#123; body &#123; font-size: 10pt; &#125;&#125; @font-face 自定义字体，自定义图标,iconfont就是利用这个实现的 1234567@font-face &#123; font-family: Gentium; src: url(http://xxxx);&#125;p &#123; font-family: Gentium, serif;&#125; 还有其他一些不常用的，有些是兼容性不好也不常用，所以没有给出来🙂。]]></content>
+    <content type="text"><![CDATA[这里我汇总了一些常见的CSS中常用的的@规则，提高开发效率的LESS预处理语言笔记🚀。 LessLess 是一门预处理语言，它是CSS 的扩展，增加了函数、变量等特征所以很好维护，可以运行在浏览器和Node环境中，因为是预处理语言最终会转化成CSS。 安装： 这里介绍以下VSCode的一个插件，它能够将Less代码转化成CSS代码。 到扩展商店下载Easy LESS插件后，打开VSCode配置文件，打开方法：点击Ctrl + , 打开设置，打开配置文件（JSON文件，点击右上角的📄按钮打开）Easy LESS并添加如下配置： 123"less.compile": &#123; "outExt": ".css" &#125; 添加配置后，新建的less文件保存后，次目录下自动会生成对应的CSS文件。 1、变量变量对后期的维护带来了很大便捷，变量一般在文件头部声明，只改一次就从行，不用去到处找。 12345@nice-blue: #5B83AD;div&#123; color: @nice-blue;&#125; 输出的CSS变量： 123div&#123; color: #5B83AD;&#125; 2、 MixinsMixns中可以放一些公共样式，可以直接引入，这样不用重复写某些属性。以下代码中将margin-auto中的代码原封不动的放到con中。 12345678910.margin-auto&#123; margin: 0 auto;&#125;.con&#123; width: 200px; height: 200px; background-color: @blue; .margin-auto&#125; 输出： 12345678910.margin-auto&#123; margin: 0 auto;&#125;.con&#123; width: 200px; height: 200px; background-color: @blue; .margin-auto&#125; 3、 嵌套规则(Nested Rules)可以嵌套写一些属性，这功能很强大,看起来也很清楚的看到嵌套关系。 123456789101112.con&#123; width: 200px; height: 200px; .wrapper&#123; width: 100px; height: 100px; &amp;:after&#123; width: 100px; height: 100px; &#125; &#125;&#125; 输出： 123456789101112.con &#123; width: 200px; height: 200px;&#125;.con .wrapper &#123; width: 100px; height: 100px;&#125;.con .wrapper:after &#123; width: 100px; height: 100px;&#125; &amp;表示当前选择器的父对象 4、插槽可以替换网址，选择器名称等。 12345@img: "../../src/images";.con&#123; background: url("@&#123;img&#125;/hello.png");&#125; 输出： 123.con &#123; background: url("../../src/images/hello.png");&#125; CSS中的@规则1、 @import 在 CSS 文件中导入另一个CSS文件。 1@import "xx.css" 2、 charset 用于提示 css 文件使用的字符串编码方式, 必须放在句首。 1@charset "utf-8" 3、 @meida 媒体查询 可以查询到用户手机的尺寸 12345@media print &#123; body &#123; font-size: 10pt; &#125;&#125; @font-face 自定义字体，自定义图标,iconfont就是利用这个实现的 1234567@font-face &#123; font-family: Gentium; src: url(http://xxxx);&#125;p &#123; font-family: Gentium, serif;&#125; 还有其他一些不常用的，有些是兼容性不好也不常用，所以没有给出来🙂。]]></content>
       <categories>
         <category>前端</category>
       </categories>
@@ -78,9 +90,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[关于CSS的一些技巧]]></title>
+    <title><![CDATA[关于CSS的经典布局与一些技巧]]></title>
     <url>%2F2019%2F12%2F07%2FCSS-float-right-li-%E9%A1%BA%E5%BA%8F%E9%A2%A0%E5%80%92%2F</url>
-    <content type="text"><![CDATA[这篇关于CSS中的一些技巧🌍。 当你写页面是会遇到右浮动盒子盒子时里面的内容也是反着，比如像这样： 12345678910&lt;!-- HTML ---&gt;&lt;ul class="right-navgation"&gt; &lt;li&gt;我的订单&lt;/li&gt; &lt;li&gt;我的品优购&lt;/li&gt; &lt;li&gt;品优购会员&lt;/li&gt; &lt;li&gt;企业采购&lt;/li&gt; &lt;li&gt;关注品优购&lt;/li&gt; &lt;li&gt;客户服务&lt;/li&gt; &lt;li&gt;网站导航&lt;/li&gt;&lt;/ul&gt; 1234567891011nav .right-navgation&#123; float: right; width: 630px; height: 31px; line-height: 31px; font-size: 12px;&#125;nav .right-navgation li&#123; margin: 0 15px 0 15px;&#125; 或许你想到的办法是把li的顺序倒过来，这种方法不是不行但看起来很别扭。我们只需要在将li左浮动就可以解决问题： 1234nav .right-navgation li&#123; folat: left; margin: 0 15px 0 15px;&#125; 以上是效果图，完美解决✌。]]></content>
+    <content type="text"><![CDATA[这篇关于CSS中的经典布局与一些技巧🌍。 当你写页面是会遇到右浮动盒子盒子时里面的内容也是反着，比如像这样： 12345678910&lt;!-- HTML ---&gt;&lt;ul class="right-navgation"&gt; &lt;li&gt;我的订单&lt;/li&gt; &lt;li&gt;我的品优购&lt;/li&gt; &lt;li&gt;品优购会员&lt;/li&gt; &lt;li&gt;企业采购&lt;/li&gt; &lt;li&gt;关注品优购&lt;/li&gt; &lt;li&gt;客户服务&lt;/li&gt; &lt;li&gt;网站导航&lt;/li&gt;&lt;/ul&gt; 1234567891011nav .right-navgation&#123; float: right; width: 630px; height: 31px; line-height: 31px; font-size: 12px;&#125;nav .right-navgation li&#123; margin: 0 15px 0 15px;&#125; 或许你想到的办法是把li的顺序倒过来，这种方法不是不行但看起来很别扭。我们只需要在将li左浮动就可以解决问题： 1234nav .right-navgation li&#123; folat: left; margin: 0 15px 0 15px;&#125; 以上是效果图，完美解决✌。]]></content>
       <categories>
         <category>前端</category>
       </categories>
@@ -113,7 +125,7 @@
   </entry>
   <entry>
     <title><![CDATA[还不会call&apply&bind的区别？]]></title>
-    <url>%2F2019%2F11%2F02%2F9%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%85%A5%E9%97%A8MFBC%2F</url>
+    <url>%2F2019%2F11%2F02%2FJS%E4%B8%AD%E7%9A%84call%2Capaly%2Cbind%2F</url>
     <content type="text"><![CDATA[这篇介绍JavaScript中的call&amp;apply&amp;bind的用法与区别🎂。 callcall方法有两个作用,一是调用函数,二是改变this的指向。关于参数: 参数1: 传入的this 参数2,3,..: 给函数传进参数 语法很简单, 调用函数的例子就不写了👇: 1fun.call(this, arg1, arg2, ....) ✨应用 应用: 改变函数this指向 123456789function fn(x, y) &#123; console.log(this) return x + y&#125;var obj = &#123; name: "Tom"&#125;fn.call() // windowfn.call(obj) // obj 应用：子构造函数继承父构造函数的属性 12345678910111213// 父构造函数function Father(name, age) &#123; this.name = name; this.age = age;&#125;// 子构造函数function Son(name, age, score) &#123; Father.call(this, name, age, score); this.score = score;&#125;var son1 = Son("Tom", 13, 100) applyapply函数的使用与call很相似,都可以改变this指向,唯一与call的区别：传参形式不同，第二个参数以数组的方式传递。 1fun.apply(this,[arr]) bind会改变this指向,不会调用函数,这一点与appy和bind不同的地方,也是他的两点🌤。 1fun.bind(this, arg1, arg2, ...) 参数1：this 参数2，3,..：传递的参数 返回值：由置定this值和初始化参数改造的原函数拷贝 ✨应用按钮点击后禁用3秒。 1234567var btn = document.querySelector("button")btn.onclick = function()&#123; this.disabled = false; setTimeout(function()&#123; this.disabled = false; //这里的this原来指向window &#125;.bind(btn),3000)&#125;]]></content>
       <categories>
         <category>前端</category>
