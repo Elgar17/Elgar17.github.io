@@ -55,21 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="这篇介绍JavaScript中的call&amp;amp;apply&amp;amp;bind的用法与区别🎂。">
-<meta name="keywords" content="JavaScript,面试">
+  <meta name="description" content="简单介绍一下JavaScript事件循环♻。">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="还不会call&amp;apply&amp;bind的区别？">
-<meta property="og:url" content="https://Elgar17.github.io/2019/11/02/JS中的call,apaly,bind/index.html">
+<meta property="og:title" content="浅谈JS事件循环（Event Loop）">
+<meta property="og:url" content="https://Elgar17.github.io/2020/10/12/浅谈JS事件循环（Event-Loop）/index.html">
 <meta property="og:site_name" content="Elgar&#39;s blog">
-<meta property="og:description" content="这篇介绍JavaScript中的call&amp;amp;apply&amp;amp;bind的用法与区别🎂。">
+<meta property="og:description" content="简单介绍一下JavaScript事件循环♻。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://elgar17.github.io/2019/11/02/JS中的call,apaly,bind/shou.jpg">
-<meta property="og:updated_time" content="2020-09-26T05:53:27.468Z">
+<meta property="og:updated_time" content="2020-10-12T10:41:03.097Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="还不会call&amp;apply&amp;bind的区别？">
-<meta name="twitter:description" content="这篇介绍JavaScript中的call&amp;amp;apply&amp;amp;bind的用法与区别🎂。">
-<meta name="twitter:image" content="https://elgar17.github.io/2019/11/02/JS中的call,apaly,bind/shou.jpg">
-  <link rel="canonical" href="https://Elgar17.github.io/2019/11/02/JS中的call,apaly,bind/">
+<meta name="twitter:title" content="浅谈JS事件循环（Event Loop）">
+<meta name="twitter:description" content="简单介绍一下JavaScript事件循环♻。">
+  <link rel="canonical" href="https://Elgar17.github.io/2020/10/12/浅谈JS事件循环（Event-Loop）/">
 
 
 <script id="page-configurations">
@@ -83,7 +81,7 @@
   };
 </script>
 
-  <title>还不会call&apply&bind的区别？ | Elgar's blog</title>
+  <title>浅谈JS事件循环（Event Loop） | Elgar's blog</title>
   
 
 
@@ -260,7 +258,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://Elgar17.github.io/2019/11/02/JS中的call,apaly,bind/">
+    <link itemprop="mainEntityOfPage" href="https://Elgar17.github.io/2020/10/12/浅谈JS事件循环（Event-Loop）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Elgar">
@@ -272,7 +270,7 @@
       <meta itemprop="name" content="Elgar's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">还不会call&apply&bind的区别？
+        <h1 class="post-title" itemprop="name headline">浅谈JS事件循环（Event Loop）
 
           
         </h1>
@@ -288,24 +286,16 @@
                 
               
 
-              <time title="创建时间：2019-11-02 21:18:35" itemprop="dateCreated datePublished" datetime="2019-11-02T21:18:35+08:00">2019-11-02</time>
+              <time title="创建时间：2020-10-12 18:31:01 / 修改时间：18:41:03" itemprop="dateCreated datePublished" datetime="2020-10-12T18:31:01+08:00">2020-10-12</time>
             </span>
           
             
 
             
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-26 13:53:27" itemprop="dateModified" datetime="2020-09-26T13:53:27+08:00">2020-09-26</time>
-              </span>
-            
           
 
           
-            <span id="/2019/11/02/JS中的call,apaly,bind/" class="post-meta-item leancloud_visitors" data-flag-title="还不会call&apply&bind的区别？" title="阅读次数">
+            <span id="/2020/10/12/浅谈JS事件循环（Event-Loop）/" class="post-meta-item leancloud_visitors" data-flag-title="浅谈JS事件循环（Event Loop）" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -323,7 +313,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/11/02/JS中的call,apaly,bind/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/11/02/JS中的call,apaly,bind/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/2020/10/12/浅谈JS事件循环（Event-Loop）/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2020/10/12/浅谈JS事件循环（Event-Loop）/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -337,35 +327,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>这篇介绍JavaScript中的call&amp;apply&amp;bind的用法与区别🎂。</p><a id="more"></a>
-<p><img src="shou.jpg" alt="shou"></p>
-<h3 id="call"><a href="#call" class="headerlink" title="call"></a>call</h3><p><code>call</code>方法有两个作用,一是调用函数,二是改变this的指向。关于参数:</p>
+        <p>简单介绍一下JavaScript事件循环♻。</p><a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>js是一门单线程的语言，它是通过事件循环机制（Event Loop）实现异步任务和多线程的。事件循环有三部分组成：</p>
 <ul>
-<li>参数1: 传入的<code>this</code></li>
-<li>参数2,3,..: 给函数传进参数</li>
+<li>调用栈(call Stack)</li>
+<li>消息队列(Message Queue)</li>
+<li>微任务队列(Microtack Queue)</li>
 </ul>
-<p>语法很简单, 调用函数的例子就不写了👇:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fun.call(<span class="keyword">this</span>, arg1, arg2, ....)</span><br></pre></td></tr></table></figure>
+<h2 id="调用栈-call-Stack"><a href="#调用栈-call-Stack" class="headerlink" title="调用栈(call Stack)"></a>调用栈(call Stack)</h2><p> 普通函数执行时先放入<strong>调用栈</strong>中按<strong>顺序</strong>执行并立即释放。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"22"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"11"</span>);</span><br><span class="line">    foo1()</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"33"</span>)</span><br><span class="line">&#125;</span><br><span class="line">foo()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印顺序是：11 22 33</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="✨应用"><a href="#✨应用" class="headerlink" title="✨应用"></a>✨应用</h4><p> 应用: <strong>改变函数this指向</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name: <span class="string">"Tom"</span></span><br><span class="line">&#125;</span><br><span class="line">fn.call()       <span class="comment">// window</span></span><br><span class="line">fn.call(obj)    <span class="comment">// obj</span></span><br></pre></td></tr></table></figure>
+<h2 id="消息队列-Message-Queue"><a href="#消息队列-Message-Queue" class="headerlink" title="消息队列(Message Queue)"></a>消息队列(Message Queue)</h2><p> 异步函数（setTimeout，setInteval，xhr…）执行时放入<strong>消息队列中</strong>，执行完调用栈中的任务后执行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"00"</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"11"</span>);</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"22"</span>)</span><br><span class="line">    &#125;, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"33"</span>)</span><br><span class="line">&#125;				</span><br><span class="line">foo();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"44"</span>)</span><br><span class="line"><span class="comment">// 打印顺序是：00 11 33 44 22</span></span><br></pre></td></tr></table></figure>
 
-<p> 应用：<strong>子构造函数</strong>继承<strong>父构造函数</strong>的属性</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 子构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">name, age, score</span>) </span>&#123;</span><br><span class="line">	Father.call(<span class="keyword">this</span>, name, age, score);</span><br><span class="line">    <span class="keyword">this</span>.score = score;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> son1 = Son(<span class="string">"Tom"</span>, <span class="number">13</span>, <span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h3><p><code>apply</code>函数的使用与<code>call</code>很相似,都可以改变<code>this</code>指向,唯一与<code>call</code>的区别：传参形式不同，第二个参数以<strong>数组</strong>的方式传递。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fun.apply(<span class="keyword">this</span>,[arr])</span><br></pre></td></tr></table></figure>
-
-<h3 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h3><p>会<strong>改变</strong>this指向,<strong>不</strong>会调用函数,这一点与<code>appy</code>和<code>bind</code>不同的地方,也是他的两点🌤。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fun.bind(<span class="keyword">this</span>, arg1, arg2, ...)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>参数1：this</li>
-<li>参数2，3,..：传递的参数</li>
-<li>返回值：由置定<code>this</code>值和初始化参数改造的<strong>原函数拷贝</strong></li>
-</ul>
-<h4 id="✨应用-1"><a href="#✨应用-1" class="headerlink" title="✨应用"></a>✨应用</h4><p>按钮点击后禁用3秒。</p>
- <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">"button"</span>)</span><br><span class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.disabled = <span class="literal">false</span>;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.disabled = <span class="literal">false</span>;		<span class="comment">//这里的this原来指向window</span></span><br><span class="line">    &#125;.bind(btn),<span class="number">3000</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="微任务队列-Microtack-Queue"><a href="#微任务队列-Microtack-Queue" class="headerlink" title="微任务队列(Microtack Queue)"></a>微任务队列(Microtack Queue)</h2><p><code>promise</code>，<code>async</code>，<code>await</code>创建的函数先放入到<strong>微任务队</strong>列中，调用栈清空后<strong>立即被执行</strong>。</p>
+<p>综合上面所讲的分析下这些代码。先不看答案自己尝试做一下。</p>
+<p>第一阶段，执行<strong>调用栈</strong>。<code>new</code> 一个<code>promise</code>的时候里面的代码<strong>立即会执行</strong>，所以先输出{1}，接着运行函数<code>foo2</code> ，将<code>setTimeout</code>放到<strong>消息队列</strong>中，执行函数<code>foo</code>并输出{2}，往后执行输出{3}，之后将 <code>p.then</code> 放进微任务队列中继续执行函数，输出{4}，结束函数<code>foo2</code>执行并销毁。</p>
+<p>第二阶段，<strong>微任务队列</strong>的消息放入调用栈执行，里面第一个任务是第一个 <code>then</code> 所以输出{5}，之后执行第二个<code>then</code> 输出{6}，这时微任务队列清空。</p>
+<p>第三阶段，<strong>消息队列</strong>的内容放入调用栈执行，输出{7} 并清空带哦用栈。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"我是promise，new的时候执行哦"</span>);     <span class="comment">// &#123;1&#125;</span></span><br><span class="line">    resolve(<span class="number">555</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">222</span>);                               <span class="comment">// &#123;2&#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'我是定时器哦'</span>)                  <span class="comment">// &#123;7&#125;</span></span><br><span class="line">    &#125;, <span class="number">0</span>);</span><br><span class="line">    foo();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">444</span>)                                <span class="comment">// &#123;3&#125;</span></span><br><span class="line">    p.then(<span class="function"><span class="params">resolve</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(resolve)                        <span class="comment">// &#123;5&#125;</span></span><br><span class="line">    &#125;).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">666</span>)                            <span class="comment">// &#123;6&#125;</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"foo2运行结束"</span>)                     <span class="comment">// &#123;4&#125;</span></span><br><span class="line">&#125;</span><br><span class="line">foo2();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出👇</span></span><br><span class="line"><span class="comment">// 我是promise，new的时候执行哦</span></span><br><span class="line"><span class="comment">// 222</span></span><br><span class="line"><span class="comment">// foo2运行结束</span></span><br><span class="line"><span class="comment">// 555</span></span><br><span class="line"><span class="comment">// 666</span></span><br><span class="line"><span class="comment">// 我是定时器哦</span></span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -386,8 +366,6 @@
             
               <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
             
-              <a href="/tags/面试/" rel="tag"># 面试</a>
-            
           </div>
         
 
@@ -396,8 +374,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/10/18/JS笔记基础（1）/" rel="next" title="JavaScript类型转换与typeof 操作符，">
-                  <i class="fa fa-chevron-left"></i> JavaScript类型转换与typeof 操作符，
+                <a href="/2020/09/26/JS中的This指向问题/" rel="next" title="JS中的This指向问题">
+                  <i class="fa fa-chevron-left"></i> JS中的This指向问题
                 </a>
               
             </div>
@@ -405,10 +383,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/11/11/Bootstrap笔记/" rel="prev" title="CSS响应式开发框架Bootstrap">
-                  CSS响应式开发框架Bootstrap <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -460,7 +434,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#call"><span class="nav-number">1.</span> <span class="nav-text">call</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#✨应用"><span class="nav-number">1.1.</span> <span class="nav-text">✨应用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apply"><span class="nav-number">2.</span> <span class="nav-text">apply</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bind"><span class="nav-number">3.</span> <span class="nav-text">bind</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#✨应用-1"><span class="nav-number">3.1.</span> <span class="nav-text">✨应用</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用栈-call-Stack"><span class="nav-number">2.</span> <span class="nav-text">调用栈(call Stack)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消息队列-Message-Queue"><span class="nav-number">3.</span> <span class="nav-text">消息队列(Message Queue)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微任务队列-Microtack-Queue"><span class="nav-number">4.</span> <span class="nav-text">微任务队列(Microtack Queue)</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->

@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[浅谈JS事件循环（Event Loop）]]></title>
+    <url>%2F2020%2F10%2F12%2F%E6%B5%85%E8%B0%88JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%EF%BC%88Event-Loop%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[简单介绍一下JavaScript事件循环♻。 前言js是一门单线程的语言，它是通过事件循环机制（Event Loop）实现异步任务和多线程的。事件循环有三部分组成： 调用栈(call Stack) 消息队列(Message Queue) 微任务队列(Microtack Queue) 调用栈(call Stack) 普通函数执行时先放入调用栈中按顺序执行并立即释放。 1234567891011function foo1()&#123; console.log("22")&#125;function foo() &#123; console.log("11"); foo1() console.log("33")&#125;foo()// 打印顺序是：11 22 33 消息队列(Message Queue) 异步函数（setTimeout，setInteval，xhr…）执行时放入消息队列中，执行完调用栈中的任务后执行。 1234567891011console.log("00");function foo() &#123; console.log("11"); setTimeout(() =&gt; &#123; console.log("22") &#125;, 0); console.log("33")&#125; foo();console.log("44")// 打印顺序是：00 11 33 44 22 微任务队列(Microtack Queue)promise，async，await创建的函数先放入到微任务队列中，调用栈清空后立即被执行。 综合上面所讲的分析下这些代码。先不看答案自己尝试做一下。 第一阶段，执行调用栈。new 一个promise的时候里面的代码立即会执行，所以先输出{1}，接着运行函数foo2 ，将setTimeout放到消息队列中，执行函数foo并输出{2}，往后执行输出{3}，之后将 p.then 放进微任务队列中继续执行函数，输出{4}，结束函数foo2执行并销毁。 第二阶段，微任务队列的消息放入调用栈执行，里面第一个任务是第一个 then 所以输出{5}，之后执行第二个then 输出{6}，这时微任务队列清空。 第三阶段，消息队列的内容放入调用栈执行，输出{7} 并清空带哦用栈。 12345678910111213141516171819202122232425262728293031var p = new Promise(resolve =&gt; &#123; console.log("我是promise，new的时候执行哦"); // &#123;1&#125; resolve(555);&#125;);function foo() &#123; console.log(222); // &#123;2&#125;&#125;function foo2() &#123; setTimeout(() =&gt; &#123; console.log('我是定时器哦') // &#123;7&#125; &#125;, 0); foo(); console.log(444) // &#123;3&#125; p.then(resolve=&gt;&#123; console.log(resolve) // &#123;5&#125; &#125;).then(()=&gt;&#123; console.log(666) // &#123;6&#125; &#125;); console.log("foo2运行结束") // &#123;4&#125;&#125;foo2();// 输出👇// 我是promise，new的时候执行哦// 222// foo2运行结束// 555// 666// 我是定时器哦]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JS中的This指向问题]]></title>
     <url>%2F2020%2F09%2F26%2FJS%E4%B8%AD%E7%9A%84This%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[谈谈JavaScript中This指向问题，含面试题👉。 预编译是this指向window 谁调用指向谁 call apply bind可以改变this指向 全局指向window 🙇‍♂️全局的this指向window123console.log(this); //windowfuction fu()&#123;console.log(this); &#125; //windowsetTimeout(fuction fu()&#123;console.log(this); &#125;,1000) //window 🌿方法中的this指向调用者谁调用了这个方法，this就指向谁 123456var obj = &#123; say: function()&#123; console.log(this) // obj &#125;&#125;obj.say(); 🍹隐式绑定(⭐)全局中的函数绑定给一个对象中的方法时this指向会改变。其实这个跟上面这个没什么区别， 1234567function say()&#123; console.log(this) // obj&#125;var obj = &#123; say:say&#125;obj.say(); 隐式丢失（⭐⭐⭐）每一个函数执行之前都会有一个预编译的环节，这时函数会生成自己的AO，this会指向window.这里有个特殊情况,下面的函数执行后this指向预编译的window. 12345678910var name = "window"function say()&#123; console.log(this) &#125;var obj = &#123; name: "obj", say: say // 隐式绑定&#125;var fun = obj.say; // &#123;1&#125;this指向改变,隐式丢失fun() // window ⚠注意：{1}处的函数赋值千万不要写成var fun = obj.say();这个样子。这样写是执行obj.say()函数，把结果赋值给fun变量，这样运行”fun”肯定会报错的。别问我怎么知道的，这个坑我踩过😭。 🏭构造函数中this指向构造函数 constructor里面的this指向是实例对象 方法里的this指向（调用者），如果是一个按钮调用者方法，this就指向按钮 1234function Fun()&#123; console.log(this); //fun&#125;var fun = new Fun; 💯真题[字节]123456789var a = function () &#123; console.log(this) this.b = 3&#125;var c = new a() // &#123;1&#125;a.prototype.b = 9; // &#123;2&#125;var b = 7; // &#123;3&#125;a() // &#123;4&#125;console.log(b, c.b) 分析： {1}第一次new一个a的时候this指向a本身。生成的c函数与a完全分离，所以c身上有个b的属性值等于3， {2}也是一个独立的属性 {3} 是全局变量这时候b=7 {4}a执行时在全局所以里面的this指向window这时a函数会覆盖全局的变量b变成了三3 最后打印结果是： 1b = 3 , c.b = 3, a.prototype.b = 9 ✨总结： 普通函数this指向window 对象里的函数(方法)指向对象 构造函数的this指向实例对象，原型对象的this也指向实例对象 绑定事件函数的this 指向 函数的调用者 （如果btn上就指向btn） 定时器里面的this也指向window 立即执行函数里的this也指向window]]></content>
@@ -149,7 +160,7 @@
   <entry>
     <title><![CDATA[你好 世界！]]></title>
     <url>%2F2019%2F10%2F06%2F%E4%BD%A0%E5%A5%BD%20%E4%B8%96%E7%95%8C%EF%BC%81%2F</url>
-    <content type="text"><![CDATA[这篇关于我👨‍💻。 你好 世界！&ensp;&ensp;之前一直想拥有自己的博客，今天终于完成了。写博客是为了什么？记录自己的成长过程吧，至于能不能帮到别人自己也不知道。 关于我&ensp;&ensp;你好，我是一名18届吉林大学通信工程学院的的在校生Elgar，之前编程是我业余爱好，现在却发现已经爱上了这个行业，关于编程之前没有学是因为没有条件，没有自己的电脑，贫穷限制了我的想象力，因为之前没学过英语。但是后来发现只要会一点基础都可以学。我平时爱好，🏇，🏋️‍♀️，👨‍💻，⚽。&ensp;&ensp;我这个人呢，是一个完美主义者，做出来的东西我觉得不够好看就不会与别人分享，前一段时间也写了不少的博客文章一直没有分享。&ensp;&ensp;对于编程呢，向web前端工程师靠拢。 这是什么地方？ 作为网络个人空间 学习交流的地方 发表生活的感悟 还有学习笔记供大家参考 我会写什么？我会分享生活感悟，学习过程中遇到的一些问题。分享大学生活，希望多多支持。]]></content>
+    <content type="text"><![CDATA[这篇关于我👨‍💻。 你好 世界！&ensp;&ensp;之前一直想拥有自己的博客，今天终于完成了。写博客是为了什么？记录自己的成长过程吧，至于能不能帮到别人自己也不知道。 关于我&ensp;&ensp;你好，我是一名在校生，还记得在大一想了解一下前端这个行业，这样的态度去入门的，学了几天，感觉多年以来自己在找的东西找到了似的。从此以后爱上了前端。 &ensp;&ensp;我这个人呢，是一个完美主义者，做出来的东西我觉得不够好看就不会与别人分享，前一段时间也写了不少的博客文章一直没有分享。&ensp;&ensp;对于编程呢，向web前端工程师靠拢。 这是什么地方？ 网络个人空间 学习交流的地方 发表生活的感悟 还有学习笔记供大家参考 我会写什么？我会分享生活感悟，学习过程中遇到的一些问题, 前端笔记。分享大学生活，希望多多支持。]]></content>
       <categories>
         <category>关于我</category>
       </categories>
