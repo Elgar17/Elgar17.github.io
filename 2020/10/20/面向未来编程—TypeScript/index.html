@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="这里介绍 TypeScript 入门知识📈。">
+  <meta name="description" content="这里介绍 TypeScript 基础知识📈。">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面向未来编程—TypeScript">
 <meta property="og:url" content="https://Elgar17.github.io/2020/10/20/面向未来编程—TypeScript/index.html">
 <meta property="og:site_name" content="Elgar&#39;s blog">
-<meta property="og:description" content="这里介绍 TypeScript 入门知识📈。">
+<meta property="og:description" content="这里介绍 TypeScript 基础知识📈。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-10-20T10:57:14.038Z">
+<meta property="og:updated_time" content="2020-10-20T11:37:50.195Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面向未来编程—TypeScript">
-<meta name="twitter:description" content="这里介绍 TypeScript 入门知识📈。">
+<meta name="twitter:description" content="这里介绍 TypeScript 基础知识📈。">
   <link rel="canonical" href="https://Elgar17.github.io/2020/10/20/面向未来编程—TypeScript/">
 
 
@@ -286,7 +286,7 @@
                 
               
 
-              <time title="创建时间：2020-10-20 18:45:39 / 修改时间：18:57:14" itemprop="dateCreated datePublished" datetime="2020-10-20T18:45:39+08:00">2020-10-20</time>
+              <time title="创建时间：2020-10-20 18:45:39 / 修改时间：19:37:50" itemprop="dateCreated datePublished" datetime="2020-10-20T18:45:39+08:00">2020-10-20</time>
             </span>
           
             
@@ -327,15 +327,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>这里介绍 TypeScript 入门知识📈。</p><a id="more"></a>
+        <p>这里介绍 TypeScript 基础知识📈。</p><a id="more"></a>
 <p>在看 typescript 之前你需要了解 Node.js, npm（nodejs内置的软件包管理器） 等知识，如果没有你需要安装一下 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>（是一个 JavaScript 运行环境）。</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在全局安装：</p>
 <ul>
 <li><code>i</code>：install 的简写</li>
-<li><code>-g</code>：安装在全局<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g typescript</span><br></pre></td></tr></table></figure>
-
-</li>
+<li><code>-g</code>：安装在全局</li>
 </ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g typescript</span><br></pre></td></tr></table></figure>
+
 <p>安装完成后创建一个 <code>.ts</code> 结尾的文件，在<strong>此目录下</strong> 运行以下命令后，在次目录下生成与 <code>.ts</code> 文件相同名字的 <code>.js</code> 的文件，说明安装成功。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tsc "文件名"</span><br><span class="line">node  "文件名"  // 生成的 js 文件名</span><br></pre></td></tr></table></figure>
 
@@ -346,7 +346,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"compilerOptions": &#123;</span><br><span class="line">    "outDir": "./js/"  // 创建 js 的文件夹平在次目录先生成js文件 </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>之后点击 vscode —— 终端 —— 运行任务 —— 选择 tsconfige.json 文件，之后修改 ts 文件自动生成 js 文件，随时监听 ts 文件的变化。</p>
-<h3 id="编译插件-——-tc-node"><a href="#编译插件-——-tc-node" class="headerlink" title="编译插件 —— tc-node"></a>编译插件 —— tc-node</h3><p>上面的步骤有点繁琐，先要生成 js 文件再执行 js 文件，为了简化这一步我们可以安装 ts-node 简化步骤，首先在全局安装：</p>
+<h3 id="编译插件-tc-node"><a href="#编译插件-tc-node" class="headerlink" title="编译插件(tc-node)"></a>编译插件(tc-node)</h3><p>上面的步骤有点繁琐，先要生成 js 文件再执行 js 文件，为了简化这一步我们可以安装 ts-node 简化步骤，首先在全局安装：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g ts-node</span><br></pre></td></tr></table></figure>
 
 <p>要注意的是 ts-node 不会生成 js 文件，用 ts-node 后运行 ts 文件后直接在控制台看到结果。</p>
@@ -357,11 +357,11 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ts-node .\hello.ts</span><br></pre></td></tr></table></figure>
 
 <p>控制台会输出 10，此目录下并不会生成 js 文件。</p>
-<h2 id="常见数据类型"><a href="#常见数据类型" class="headerlink" title="常见数据类型"></a>常见数据类型</h2><p>在 js 基础上也增加了一些类型，原有类型：string, number, boolean, null, undefied, Symbol, Object  Array。<br>ts 新增的类型：tuple（元组）, enum（枚举）, any（任意类型）, never, void。</p>
+<h2 id="常见数据类型"><a href="#常见数据类型" class="headerlink" title="常见数据类型"></a>常见数据类型</h2><p>在 js 基础上也增加了一些数据类型，原有类型：string, number, boolean, null, undefied, Symbol, Object, Array。<br>ts 新增的类型：tuple（元组）, enum（枚举）, any（任意类型）, never, void。</p>
 <p>js 定义变量：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> age = <span class="number">18</span>;</span><br></pre></td></tr></table></figure>
 
-<p>ts 需要带上<strong>变量类型</strong>，一旦定义好类型之后这个变量不能赋其他类型的值：</p>
+<p>ts 需要带上<strong>变量类型</strong>，定义好类型之后这个变量不能赋其它类型的值。</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> age: <span class="built_in">number</span> = <span class="number">18</span>;</span><br><span class="line"></span><br><span class="line">age = <span class="string">"16"</span>  <span class="comment">// 报错 类型不匹配</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name: <span class="built_in">string</span> = <span class="string">"Tom"</span></span><br></pre></td></tr></table></figure>
@@ -373,8 +373,7 @@
 
 <h3 id="undefined-null"><a href="#undefined-null" class="headerlink" title="undefined,null"></a>undefined,null</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> n: <span class="literal">null</span> = <span class="literal">null</span>; <span class="comment">// 只能写 null</span></span><br><span class="line">n = <span class="literal">undefined</span>       <span class="comment">// 报错</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> unde: <span class="literal">undefined</span> = <span class="literal">undefined</span>; <span class="comment">// 只能是 undefined</span></span><br><span class="line">unde = <span class="string">"hi"</span>         <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>数组也一样，元素类型固定，赋其他类型的值会报错，不会限制长度</p>
-<p>语法：</p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>数组也一样，元素类型固定，赋其它类型的值会报错，不会限制长度，语法：</p>
 <p>方式一：let 数组名: 类型[] = [值1,值2];</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr: <span class="built_in">string</span>[] = [<span class="string">"apple"</span>,<span class="string">"banana"</span>,<span class="string">"pear"</span>];</span><br><span class="line">arr = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>];  <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
 
@@ -394,7 +393,7 @@
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> 枚举名&#123;</span><br><span class="line">     枚举项<span class="number">1</span> = 枚举值<span class="number">1</span>,</span><br><span class="line">     枚举项<span class="number">2</span> = 枚举值<span class="number">2</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>举个例子🙋：</p>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> sex&#123;</span><br><span class="line">    male = <span class="number">1</span>,</span><br><span class="line">    female = <span class="number">2</span>,</span><br><span class="line">    unknown = <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sex.male)  <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(sex[<span class="number">1</span>])    <span class="comment">// fmale</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这样写也合法的</span></span><br><span class="line"><span class="keyword">enum</span> sex&#123;</span><br><span class="line">    male,   <span class="comment">// 默认值 0</span></span><br><span class="line">    female, <span class="comment">// 默认值 1</span></span><br><span class="line">    unknown <span class="comment">// 默认值 2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> sex&#123;</span><br><span class="line">    male = <span class="number">1</span>,</span><br><span class="line">    female = <span class="number">2</span>,</span><br><span class="line">    unknown = <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sex.male)  <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(sex[<span class="number">1</span>])    <span class="comment">// fmale</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这样写也是合法的</span></span><br><span class="line"><span class="keyword">enum</span> sex&#123;</span><br><span class="line">    male,   <span class="comment">// 默认值 0</span></span><br><span class="line">    female, <span class="comment">// 默认值 1</span></span><br><span class="line">    unknown <span class="comment">// 默认值 2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="any"><a href="#any" class="headerlink" title="any"></a>any</h3><p>比如我们不知道后端返回的数据类型是什么，这时候可以用 any 类型，</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> text: <span class="built_in">any</span> = <span class="string">"hello"</span></span><br><span class="line"><span class="built_in">console</span>.log(text)   <span class="comment">// "hello"</span></span><br><span class="line"></span><br><span class="line">text = <span class="number">123</span>;         <span class="comment">// 正确</span></span><br><span class="line"><span class="built_in">console</span>.log(text)   <span class="comment">// 123</span></span><br></pre></td></tr></table></figure>
@@ -426,7 +425,7 @@
 <h3 id="剩余参数"><a href="#剩余参数" class="headerlink" title="剩余参数"></a>剩余参数</h3><p>如果后一些不确定的参数，就可以用剩余参数：</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">personName</span>(<span class="params">name: <span class="built_in">string</span>, ...names: <span class="built_in">string</span>[]</span>): <span class="title">void</span></span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(name,names)</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">personName(<span class="string">"jeck"</span>,<span class="string">"Tom"</span>,<span class="string">"jerry"</span>)    <span class="comment">// jeck [ 'Tom', 'jerry' ]</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="类-——-面向对象"><a href="#类-——-面向对象" class="headerlink" title="类 —— 面向对象"></a>类 —— 面向对象</h2><p>在 ES5 中像面向对象编程需要 prototype 来完成，比如像这样：</p>
+<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p>在 ES5 中像面向对象编程需要 prototype 来完成，比如像这样：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">person.prototype.sayname = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>在 ts 中提供了类的概念，上面的代码可以这样写，这与上面写的程序没什么区别，转换成 js 是跟上面的程序一样了，就是不同的写法而已。</p>
@@ -519,7 +518,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实时编译-TS-文件"><span class="nav-number">1.1.</span> <span class="nav-text">实时编译 TS 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译插件-——-tc-node"><span class="nav-number">1.2.</span> <span class="nav-text">编译插件 —— tc-node</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见数据类型"><span class="nav-number">2.</span> <span class="nav-text">常见数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串"><span class="nav-number">2.1.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数值类型"><span class="nav-number">2.2.</span> <span class="nav-text">数值类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔值"><span class="nav-number">2.3.</span> <span class="nav-text">布尔值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined-null"><span class="nav-number">2.4.</span> <span class="nav-text">undefined,null</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">2.5.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元组"><span class="nav-number">2.6.</span> <span class="nav-text">元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举"><span class="nav-number">2.7.</span> <span class="nav-text">枚举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#any"><span class="nav-number">2.8.</span> <span class="nav-text">any</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#void"><span class="nav-number">2.9.</span> <span class="nav-text">void</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#never"><span class="nav-number">2.10.</span> <span class="nav-text">never</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联合类型"><span class="nav-number">2.11.</span> <span class="nav-text">联合类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">3.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的类型"><span class="nav-number">3.1.</span> <span class="nav-text">函数的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数"><span class="nav-number">3.2.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可选参数"><span class="nav-number">3.3.</span> <span class="nav-text">可选参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#剩余参数"><span class="nav-number">3.4.</span> <span class="nav-text">剩余参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类-——-面向对象"><span class="nav-number">4.</span> <span class="nav-text">类 —— 面向对象</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实时编译-TS-文件"><span class="nav-number">1.1.</span> <span class="nav-text">实时编译 TS 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译插件-tc-node"><span class="nav-number">1.2.</span> <span class="nav-text">编译插件(tc-node)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见数据类型"><span class="nav-number">2.</span> <span class="nav-text">常见数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串"><span class="nav-number">2.1.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数值类型"><span class="nav-number">2.2.</span> <span class="nav-text">数值类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔值"><span class="nav-number">2.3.</span> <span class="nav-text">布尔值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined-null"><span class="nav-number">2.4.</span> <span class="nav-text">undefined,null</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">2.5.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元组"><span class="nav-number">2.6.</span> <span class="nav-text">元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举"><span class="nav-number">2.7.</span> <span class="nav-text">枚举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#any"><span class="nav-number">2.8.</span> <span class="nav-text">any</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#void"><span class="nav-number">2.9.</span> <span class="nav-text">void</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#never"><span class="nav-number">2.10.</span> <span class="nav-text">never</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联合类型"><span class="nav-number">2.11.</span> <span class="nav-text">联合类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">3.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的类型"><span class="nav-number">3.1.</span> <span class="nav-text">函数的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数"><span class="nav-number">3.2.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可选参数"><span class="nav-number">3.3.</span> <span class="nav-text">可选参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#剩余参数"><span class="nav-number">3.4.</span> <span class="nav-text">剩余参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类"><span class="nav-number">4.</span> <span class="nav-text">类</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
