@@ -55,20 +55,20 @@
   };
 </script>
 
-  <meta name="description" content="列1 列2 列3    第1行 12 13   第2行 22 23   第3行 32 33">
+  <meta name="description" content="本文带你了解 websocket通信和实现一个简单的聊天室📡。">
 <meta name="keywords" content="JavaScript,Node">
 <meta property="og:type" content="article">
 <meta property="og:title" content="websocket教程">
 <meta property="og:url" content="https://Elgar17.github.io/2020/11/10/websocket教程/index.html">
 <meta property="og:site_name" content="Elgar&#39;s blog">
-<meta property="og:description" content="列1 列2 列3    第1行 12 13   第2行 22 23   第3行 32 33">
+<meta property="og:description" content="本文带你了解 websocket通信和实现一个简单的聊天室📡。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://elgar17.github.io/2020/11/10/websocket教程/web1.png">
 <meta property="og:image" content="https://elgar17.github.io/2020/11/10/websocket教程/http.png">
-<meta property="og:updated_time" content="2020-11-10T13:08:02.729Z">
+<meta property="og:updated_time" content="2020-11-10T13:13:18.341Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="websocket教程">
-<meta name="twitter:description" content="列1 列2 列3    第1行 12 13   第2行 22 23   第3行 32 33">
+<meta name="twitter:description" content="本文带你了解 websocket通信和实现一个简单的聊天室📡。">
 <meta name="twitter:image" content="https://elgar17.github.io/2020/11/10/websocket教程/web1.png">
   <link rel="canonical" href="https://Elgar17.github.io/2020/11/10/websocket教程/">
 
@@ -289,7 +289,7 @@
                 
               
 
-              <time title="创建时间：2020-11-10 20:53:34 / 修改时间：21:08:02" itemprop="dateCreated datePublished" datetime="2020-11-10T20:53:34+08:00">2020-11-10</time>
+              <time title="创建时间：2020-11-10 20:53:34 / 修改时间：21:13:18" itemprop="dateCreated datePublished" datetime="2020-11-10T20:53:34+08:00">2020-11-10</time>
             </span>
           
             
@@ -330,31 +330,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <table>
-<thead>
-<tr>
-<th>列1</th>
-<th>列2</th>
-<th>列3</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>第1行</td>
-<td>12</td>
-<td>13</td>
-</tr>
-<tr>
-<td>第2行</td>
-<td>22</td>
-<td>23</td>
-</tr>
-<tr>
-<td>第3行</td>
-<td>32</td>
-<td>33</td>
-</tr>
-</tbody></table><a id="more"></a>
-<p>本文带你了解 websocket通信和实现一个简单的聊天室📡。</p>
+        <p>本文带你了解 websocket通信和实现一个简单的聊天室📡。</p><a id="more"></a>
 <p>本文内容：</p>
 <ul>
 <li>H5 使用 websocket 通信</li>
@@ -370,7 +346,31 @@
 <h3 id="2、发送数据和处理数据"><a href="#2、发送数据和处理数据" class="headerlink" title="2、发送数据和处理数据"></a>2、发送数据和处理数据</h3><p>我们创建完服务之后如何知道连接成功了呢？ 给我们提供了一个 open 事件，连接成功时会触发这个给事件。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当连接成功时控制台会输出 连接成功</span></span><br><span class="line">socket.addEventListener(<span class="string">'open'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"连接成功"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>以下是常用事件，用法都一样这里不再讲解，可参考上面的逻辑：<br>| 事件    | 描述                     |<br>|:———:|:————————–:|<br>| open    | 连接成功的时候触发       |<br>| message | 用户收到服务器消息时触发 |<br>| error   | 通信发生错误触发         |<br>| close   | 连接关闭触发             |</p>
+<p>以下是常用事件，用法都一样这里不再讲解，可参考上面的逻辑：</p>
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th align="right">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>open</td>
+<td align="right">连接成功的时候触发</td>
+</tr>
+<tr>
+<td>message</td>
+<td align="right">用户收到服务器消息时触发</td>
+</tr>
+<tr>
+<td>error</td>
+<td align="right">通信发生错误触发</td>
+</tr>
+<tr>
+<td>close</td>
+<td align="right">连接关闭触发</td>
+</tr>
+</tbody></table>
 <p>连接成功了之后，就是发送数据。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn"</span>&gt;</span>发送<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -381,7 +381,23 @@
 <p>还剩最后一步，怎么接受服务器发来的数据？ 上面也列了出来，通过监听 message 事件可以得到数据。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 接受服务器发来的数据</span></span><br><span class="line">socket.addEventListener(<span class="string">'message'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.data)     <span class="comment">// hello</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>常用方法：<br>| 方法           | 描述     |<br>|:—————-:|:———-:|<br>| Socket.send()  | 发送数据 |<br>| Socket.close() | 关闭连接 |</p>
+<p>常用方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Socket.send()</td>
+<td>发送数据</td>
+</tr>
+<tr>
+<td>Socket.close()</td>
+<td>关闭连接</td>
+</tr>
+</tbody></table>
 <h2 id="二、Node-js-创建-websocket-服务"><a href="#二、Node-js-创建-websocket-服务" class="headerlink" title="二、Node.js 创建 websocket 服务"></a>二、Node.js 创建 websocket 服务</h2><p>这里使用了一个 <a href="https://github.com/sitegui/nodejs-websocket" target="_blank" rel="noopener">nodejs-websocket</a> 的依赖包来开发的服务。</p>
 <p>初始化（<code>npm init -y</code>命令初始化一个项目）一个新项目后t通过 <code>npm install nodejs-websocket</code> 安装。</p>
 <p>下面的实例是，用nodejs-websocet 创建一个服务，在3000端口上运行。<br>只要有用户连接服务，会打印 ”新的连接“。</p>
