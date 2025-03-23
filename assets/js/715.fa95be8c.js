@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkkz321=self.webpackChunkkz321||[]).push([[715],{6715:(e,n,r)=>{r.r(n),r.d(n,{default:()=>s});var t=r(6252);const c={},s=(0,r(3744).Z)(c,[["render",function(e,n){return(0,t.wg)(),(0,t.iD)("div",null," Hello, World! ")}]])},3744:(e,n)=>{n.Z=(e,n)=>{const r=e.__vccOpts||e;for(const[e,t]of n)r[e]=t;return r}}}]);
