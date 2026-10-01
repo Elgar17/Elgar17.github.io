@@ -1,8 +1,9 @@
 // 哈萨克语 TTS 模型资源的持久缓存 Service Worker。
-// 仅拦截 /onnx/、/piper/ 以及 HuggingFace piper-voices 的资源请求，
-// 采用 cache-first 策略，使 onnxruntime wasm 等由库内部加载的大文件也只下载一次。
+// 仅拦截本站 /onnx/、/piper/ 的资源请求，采用 cache-first 策略，
+// 使 onnxruntime wasm 等由库内部加载的大文件也只下载一次。
+// 远程音色（ModelScope / HuggingFace）由 piperEngine.js 自行写入 Cache Storage，这里不重复缓存。
 
-const CACHE_NAME = "kazakh-tts-sw-v1"
+const CACHE_NAME = "kazakh-tts-sw-v2"
 
 self.addEventListener("install", () => {
   self.skipWaiting()
@@ -23,10 +24,8 @@ self.addEventListener("activate", (event) => {
 })
 
 function shouldCache(url) {
-  if (url.origin === self.location.origin) {
-    return url.pathname.includes("/onnx/") || url.pathname.includes("/piper/")
-  }
-  return url.hostname.endsWith("huggingface.co") && url.pathname.includes("/piper-voices/")
+  if (url.origin !== self.location.origin) return false
+  return url.pathname.includes("/onnx/") || url.pathname.includes("/piper/")
 }
 
 self.addEventListener("fetch", (event) => {
